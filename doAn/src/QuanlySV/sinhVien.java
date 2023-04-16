@@ -53,16 +53,6 @@ public class sinhVien extends person {
         return this.diem = diem;
     }
 
-    // public String setGioiTinh(String gioiTinh) {
-    //     while(true){
-    //         if(gioiTinh.equalsIgnoreCase("Nam")||gioiTinh.equalsIgnoreCase("Nu"))
-    //             break;
-    //         System.out.print("Moi nhap gioi tinh hop le: ");
-    //         gioiTinh=sc.nextLine();
-    //     }
-    //      return this.gioiTinh = gioiTinh;
-    // }
-// ///////////////////////////////////////
 
     public double getDiem () {
         return this.diem;
