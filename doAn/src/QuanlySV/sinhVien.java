@@ -49,7 +49,7 @@ public class sinhVien extends person {
             
             System.out.print("Nhap diem cho sinh vien ( diem <= 10 ): ");
             diem = sc.nextDouble();
-            }
+            }  
         return this.diem = diem;
     }
 
