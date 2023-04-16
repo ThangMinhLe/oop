@@ -3,6 +3,7 @@ package QuanlySV;
 public class coVanHocTap extends person {
     private String LopCoVan;
 
+
     public coVanHocTap () {
 
     }
@@ -27,11 +28,17 @@ public class coVanHocTap extends person {
         setLopCoVan(sc.nextLine());
     }
 
+
+    @Override 
+    public String xepLoai() {
+        return "";
+    }
+
     public String toString () {
-        return super.toString() + String.format("%-17s|%-10s|","" ,LopCoVan) ;
+        return super.toString() + String.format("%-17s|%-10s|","" ,LopCoVan) + this.xepLoai() ;
 
     }
 
-
+    
 
 }

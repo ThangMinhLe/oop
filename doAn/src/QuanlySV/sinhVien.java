@@ -42,8 +42,27 @@ public class sinhVien extends person {
     }
 
     public double setDiem(double diem) { 
+        while (true) {
+            if(diem >= 0.0 && diem <= 10.0) 
+                break;
+            
+            
+            System.out.print("Nhap diem cho sinh vien ( diem <= 10 ): ");
+            diem = sc.nextDouble();
+            }
         return this.diem = diem;
     }
+
+    // public String setGioiTinh(String gioiTinh) {
+    //     while(true){
+    //         if(gioiTinh.equalsIgnoreCase("Nam")||gioiTinh.equalsIgnoreCase("Nu"))
+    //             break;
+    //         System.out.print("Moi nhap gioi tinh hop le: ");
+    //         gioiTinh=sc.nextLine();
+    //     }
+    //      return this.gioiTinh = gioiTinh;
+    // }
+// ///////////////////////////////////////
 
     public double getDiem () {
         return this.diem;
@@ -66,15 +85,25 @@ public class sinhVien extends person {
         // System.out.print("Nhap so tin chi da dat duoc cua sinh vien: ");
         // soTinChiDaDat = Integer.parseInt(sc.nextLine());
         System.out.print("Nhap diem cho sinh vien: ");
-        diem = Double.parseDouble(sc.nextLine());
+        setDiem(Double.parseDouble(sc.nextLine()));
     }
+    
     @Override
-    public String toString() {
-        return super.toString() + String.format("%-5s|%-5s|%-5.1f|", lop, khoa, diem);
+    public String xepLoai() {
+        if(diem >=8.0 ) {
+            return String.format("%-21s|%-5s","", "A");
+        }
+        else if(diem>=6.5 && diem < 8) {
+            return String.format("%-21s|%-5s","","B");
+        }
+        return String.format("%-21s|%-5s", "","C"); 
     }
 
-    public static void main(String[] args) {
-        
+    @Override
+    public String toString() {
+        return super.toString() + String.format("%-5s|%-5s|%-5.1f|", lop, khoa, diem)+ this.xepLoai();
     }
+
+   
 
 }

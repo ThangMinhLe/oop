@@ -2,7 +2,7 @@ package QuanlySV;
 
 import java.util.*;
 
-public class person {
+public abstract class person {
     private String maSo;
     private String name;
     private String namSinh;
@@ -47,7 +47,7 @@ public class person {
         while(true){
             if(gioiTinh.equalsIgnoreCase("Nam")||gioiTinh.equalsIgnoreCase("Nu"))
                 break;
-            System.out.println("Moi nhap gioi tinh hop le");
+            System.out.print("Moi nhap gioi tinh hop le: ");
             gioiTinh=sc.nextLine();
         }
          return this.gioiTinh = gioiTinh;
@@ -58,6 +58,18 @@ public class person {
     }
 
     public void setNamSinh(String namSinh) {
+        Calendar calendar = Calendar.getInstance();
+
+        // Lấy năm hiện tại từ đối tượng Calendar
+        int year = calendar.get(Calendar.YEAR);
+        while(true) {
+            int nam = Integer.parseInt(namSinh);
+            if((year - nam) >= 18) {
+                break;
+            }
+            System.out.print("Nhap gia tri nam sinh hop le ( nam sinh <= " + (year-18) + " ): " );
+            namSinh = sc.nextLine();
+        }
         this.namSinh = namSinh;
     }
 
@@ -73,15 +85,18 @@ public class person {
     public void nhapTT(){
         System.out.print("Nhap ma so: ");
         setMaSo(sc.nextLine());
-        System.out.println("Moi nhap ho ten:");
+        System.out.print("Moi nhap ho ten:");
         setName(sc.nextLine());
-        System.out.println("Moi nhap gioi tinh:");
+        System.out.print("Moi nhap gioi tinh:");
         setGioiTinh(sc.nextLine());
-        System.out.println("Moi nhap nam sinh:");
+        System.out.print("Moi nhap nam sinh:");
         setNamSinh(sc.nextLine());
-        System.out.println("Moi nhap dia chi:");
+        System.out.print("Moi nhap dia chi:");
         setDiaChi(sc.nextLine());
     }
+
+    public abstract String xepLoai();
+    
 
     public String toString () {
        
