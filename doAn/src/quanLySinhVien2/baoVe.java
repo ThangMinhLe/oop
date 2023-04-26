@@ -41,7 +41,17 @@ public class baoVe extends nhanVien {
         this.luong = luong;
     }
 
+    public void nhaopTT() {
+        super.nhapTT();
 
+        System.out.print("Nhap so ngay lam viec: ");
+        setSoNgayLamViec(sc.nextDouble());
+        
+    }
+
+    public String toString() {
+        return super.toString() + String.format("%-10.2f %-10d",getSoNgayLamViec(), tinhLuong() );
+    }
 
     @Override   
     public long tinhLuong() {

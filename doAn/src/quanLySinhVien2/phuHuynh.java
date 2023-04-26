@@ -1,6 +1,9 @@
 package quanLySinhVien2;
+import java.util.*;
 
 public class phuHuynh {
+    Scanner sc = new Scanner(System.in);
+
     private String ten;
     private String soDienThoai;
 
@@ -28,6 +31,18 @@ public class phuHuynh {
         this.soDienThoai = soDienThoai;
     }
  
+    public void nhapTT() {
+       
+        System.out.print("Nhap ten PH: ");
+        setTen(sc.nextLine());
+        System.out.print("Nhap SDT: ");
+        setSoDienThoai(sc.nextLine());
+
+    }
+
+    public String toString(){
+        return this.toString() + String.format("%-20s %-20s", getTen(), getSoDienThoai() );
+    }
      
 
    

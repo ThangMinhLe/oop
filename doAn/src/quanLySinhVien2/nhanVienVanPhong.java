@@ -28,7 +28,18 @@ public class nhanVienVanPhong extends nhanVien {
         this.luong = luong;
     }
 
+    public void nhapTT() {
+        super.nhapTT();
 
+        System.out.print("Nhap so gio lam viec: ");
+        setSoGioLamViec(sc.nextDouble());
+        luong = tinhLuong();
+    }
+
+
+    public String toString() {
+        return this.toString() + String.format("%-10.2f %10d ", getSoGioLamViec(), luong);
+    }
 
     @Override 
     public long tinhLuong() {

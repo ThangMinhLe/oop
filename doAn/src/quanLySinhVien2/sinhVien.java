@@ -2,7 +2,7 @@ package quanLySinhVien2;
 
 public class sinhVien extends person {
     private lopCuaSinhVien lop;
-    private khoaCuaSinhVien khoa; 
+    private khoaCuaSinhVien khoa;
     private phuHuynh ph;
     private monhoc mh;
     private giangVien gv;
@@ -58,9 +58,45 @@ public class sinhVien extends person {
         this.gv = gv;
     }
 
+    @Override 
+    public void nhapTT() {
+      super.nhapTT();
 
-    
-    
+      System.out.println("Nhap lop cho sv!!!");
+      System.out.print("Nhap ma lop cho sv: ");
+      lop.setMaLop(sc.nextLine());  
+      System.out.print("Nhap ten lop cho snh vien: ");
+      lop.setTenLop(sc.nextLine());
+      
+      System.out.println("Nhap khoa cho sinh vien!!!");
+      System.out.print("Nhap ma khoa cho sinh vien: ");
+      khoa.setMaKhoa(sc.nextLine());
+      System.out.print("Nhap ten khoa cho sinh vien: ");
+      khoa.setTenKhoa(sc.nextLine());
+
+      System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
+      System.out.print("Nhap ten cho phu huynh: ");
+      ph.setTen(sc.nextLine());
+      System.out.print("Nhap SDT cho phu huynh: ");
+      ph.setSoDienThoai(sc.nextLine());
+
+      System.out.println("Nhap thong tin mon hoc: ");
+      System.out.print("Nhap ma mon hoc: ");
+      mh.setMaMonHoc(sc.nextLine());
+      System.out.print("Nhap ten mon hoc: ");
+      mh.setTenMonHoc(getGioiTinh());
+      System.out.print("Nhap diem cho sinh vien: ");
+      mh.setDiem(sc.nextDouble());
+
+      System.out.println("Nhap GV!!! ");
+      System.out.print("Nhap ten giang vien: ");
+      gv.setName(getName());
+    }
+
+    public String toString() {
+        return super.toString() + String.format("%-5s %-5s %-20s %-20s", lop.getTenLop(), khoa.getTenKhoa(), ph.getTen(), gv.getName() );
+    }
+
 
 
 }

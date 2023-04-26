@@ -19,7 +19,7 @@ public class diaChi {
         return district;
     }
 
-    public String setCity(){
+    public String setCity(String City){
         return this.City = City;
     }
 

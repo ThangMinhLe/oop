@@ -28,7 +28,21 @@ public class giangVien extends nhanVien {
         this.sala = sala;
     }
     
+    public void nhapTT() {
+        super.nhapTT();
 
+        System.out.print("Nhap mon giang day: ");
+        monGiangDay = sc.nextLine();
+     
+        System.out.print("Nhap he so luong cho GV: ");
+        sala.setHeSoLuong(sc.nextInt());
+        System.out.print("Nhap muc luong cho giao vien: ");
+        sala.setMucLuong(sc.nextInt());
+    }
+
+    public String toString() {
+    return String.format("%-10s %-20d", monGiangDay, this.tinhLuong());
+}
 
     @Override
     public long tinhLuong() {
