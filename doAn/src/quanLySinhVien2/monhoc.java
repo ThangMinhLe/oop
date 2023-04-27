@@ -1,6 +1,10 @@
 package quanLySinhVien2;
 
+import javax.xml.transform.Source;
+import java.util.*;
+
 public class monhoc {
+    Scanner sc = new Scanner(System.in);
     private String maMonHoc;
     private String tenMonHoc;
     private double diem;
@@ -37,6 +41,21 @@ public class monhoc {
     public void setDiem(double diem) {
         this.diem = diem;
     }
+
+    public void nhap(){
+        System.out.print("Nhap ma mon hoc: ");
+        setMaMonHoc(sc.nextLine());
+        System.out.print("Nhap ten mon hoc: ");
+        setTenMonHoc(sc.nextLine());
+        System.out.print("Nhap diem cho sinh vien: ");
+        setDiem(sc.nextDouble());
+    }
+
+    public String toString() {
+        return String.format("%-10s %-10s %-10f",getMaMonHoc(), getTenMonHoc(), getDiem());
+    }
+
+    
     
 
 

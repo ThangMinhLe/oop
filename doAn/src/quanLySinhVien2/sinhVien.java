@@ -1,6 +1,6 @@
 package quanLySinhVien2;
 
-public class sinhVien extends person {
+public class sinhVien extends person implements chucNang {
     private lopCuaSinhVien lop;
     private khoaCuaSinhVien khoa;
     private phuHuynh ph;
@@ -95,6 +95,10 @@ public class sinhVien extends person {
 
     public String toString() {
         return super.toString() + String.format("%-5s %-5s %-20s %-20s", lop.getTenLop(), khoa.getTenKhoa(), ph.getTen(), gv.getName() );
+    }
+
+    public void xepLoai() {
+        
     }
 
 

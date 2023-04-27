@@ -1,6 +1,9 @@
 package quanLySinhVien2;
 
+import java.util.*;
+
 public class lopCuaSinhVien {
+    Scanner sc = new Scanner(System.in);
     private String maLop;
     private String tenLop;
 
@@ -28,6 +31,12 @@ public class lopCuaSinhVien {
         this.tenLop = tenLop;
     }
 
+    public void nhap(){
+        System.out.print("Nhap ma lop: ");
+        setMaLop(sc.nextLine());
+        System.out.print("Nhap ten lop: ");
+        setTenLop(sc.nextLine());
+    }
 
     
 }

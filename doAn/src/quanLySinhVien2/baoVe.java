@@ -41,7 +41,8 @@ public class baoVe extends nhanVien {
         this.luong = luong;
     }
 
-    public void nhaopTT() {
+    @Override
+    public void nhapTT() {
         super.nhapTT();
 
         System.out.print("Nhap so ngay lam viec: ");

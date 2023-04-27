@@ -83,6 +83,21 @@ public class ngaySinh {
         return nam;
     }
 
+    public void nhap() {
+        
+        System.out.print("Nhap nam: ");
+        setNam(sc.nextInt());
+        System.out.print("Nhap thang: ");
+        setThang(sc.nextInt());
+        System.out.print("Nhap ngay: ");
+        setNgay(sc.nextInt());
+
+    }
+
+    public String toString(){
+        return String.format("%-5d %-5d %-5d",getNgay(), getThang(), getNam());
+    }
+
 
 
 }

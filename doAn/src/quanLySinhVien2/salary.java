@@ -1,6 +1,9 @@
 package quanLySinhVien2;
 
+import java.util.*;
+
 public class salary {
+    Scanner sc = new Scanner(System.in);
     private int heSoLuong;
     private long mucLuong;
 
@@ -28,8 +31,18 @@ public class salary {
         this.mucLuong = mucLuong;
     }
 
+    public void nhap(){
+        
+        System.out.print("Nhap he so luong: ");
+        setHeSoLuong(sc.nextInt());
+        System.out.print("Nhap muc luong: ");
+        setMucLuong(sc.nextLong());
+
+    }
     
- 
+    public String toSring(){
+        return String.format("%10d %10d",getHeSoLuong(), getMucLuong());
+    }
 
     public long tinhLuongGV() {
         return (long) heSoLuong*mucLuong;

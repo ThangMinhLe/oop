@@ -3,7 +3,7 @@ package quanLySinhVien2;
 import java.util.*;
 
 public class person implements chucNang {
-    private int id;
+    private String id;
     private String name;
     private String gioiTinh;
     private ngaySinh ns;
@@ -14,7 +14,7 @@ public class person implements chucNang {
     public person() {
     }
 
-    public person(int id, String name, String gioiTinh, ngaySinh ns, diaChi dc) {
+    public person(String id, String name, String gioiTinh, ngaySinh ns, diaChi dc) {
         this.id = id;
         this.name = name;
         this.gioiTinh = gioiTinh;
@@ -22,11 +22,11 @@ public class person implements chucNang {
         this.dc = dc;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -72,7 +72,7 @@ public class person implements chucNang {
 
     public void nhapTT() {
         System.out.print("Nhap ID:  ");
-        setId(sc.nextInt());
+        setId(sc.nextLine());
         System.out.print("Nhap ten: ");
         setName(sc.nextLine());
 
@@ -95,7 +95,7 @@ public class person implements chucNang {
     }
 
     public String toString() {
-        return String.format("%-5d %-20s %-5s %-5d %-5d %-5d %-10s %-10s", getId(), getName(), getGioiTinh(), ns.getNgay(), ns.getThang(), ns.getNam(), dc.getQuan(), dc.getThanhPho()  );
+        return String.format("%-5s %-20s %-5s %-5d %-5d %-5d %-10s %-10s", getId(), getName(), getGioiTinh(), ns.getNgay(), ns.getThang(), ns.getNam(), dc.getQuan(), dc.getThanhPho()  );
     }
 
     public void xuatTT() {
