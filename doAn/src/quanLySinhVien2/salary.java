@@ -1,6 +1,7 @@
 package quanLySinhVien2;
 
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class salary {
     Scanner sc = new Scanner(System.in);

@@ -1,6 +1,7 @@
 package quanLySinhVien2;
 
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class ngaySinh {
     Scanner sc = new Scanner(System.in);
@@ -9,8 +10,17 @@ public class ngaySinh {
     private int thang;
     private int nam;
 
-        //getter/setter
-    
+    public ngaySinh(){
+        
+    }
+
+    public ngaySinh(int nam, int thang, int ngay){
+        this.nam = nam;
+        this.thang = thang;
+        this.ngay = ngay;
+    }
+
+    //getter/setter
     public int setNgay(int ngay) {
         for (;;) {
             if( thang >= 1 && thang <= 7 && thang != 2 && thang % 2 != 0) {

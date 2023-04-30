@@ -1,18 +1,20 @@
 package quanLySinhVien2;
 
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class person implements chucNang {
     private String id;
     private String name;
+    private diaChi dc;
     private String gioiTinh;
     private ngaySinh ns;
-    private diaChi dc;
 
     Scanner sc = new Scanner(System.in);
 
     public person() {
     }
+
 
     public person(String id, String name, String gioiTinh, ngaySinh ns, diaChi dc) {
         this.id = id;
@@ -45,13 +47,12 @@ public class person implements chucNang {
 
     public void setGioiTinh(String gioiTinh) {
         while(true){
-            if(gioiTinh.equalsIgnoreCase("Nam")||
-            gioiTinh.equalsIgnoreCase("Nu"))
+            if(gioiTinh.equalsIgnoreCase("Nam")||gioiTinh.equalsIgnoreCase("Nu"))
                 break;
             System.out.println("Moi nhap gioi tinh hop le");
             gioiTinh=sc.nextLine();
         }
-       this.gioiTinh = gioiTinh;
+        this.gioiTinh = gioiTinh;
     }
 
     public ngaySinh getNs() {
@@ -76,12 +77,12 @@ public class person implements chucNang {
         System.out.print("Nhap ten: ");
         setName(sc.nextLine());
 
-        System.out.println("Nhap dia chi!!!");
-        System.out.print("Nhap Thanh Pho: ");
-        dc.setThanhPho(sc.nextLine());
-        System.out.print("Nhap quan: ");
-        dc.setQuan(sc.nextLine());
+        //set gioi tinh
+        System.out.print("Moi nhap gioi tinh: ");
+        setGioiTinh(sc.nextLine());
 
+        //creat ngaySinh
+        ngaySinh ns = new ngaySinh();
         System.out.println("Nhap ngay thang nam sinh!!");
         System.out.print("Nhap nam sinh: ");
         ns.setNam(sc.nextInt());
@@ -89,18 +90,41 @@ public class person implements chucNang {
         ns.setThang(sc.nextInt());
         System.out.print("Nhap ngay sinh: ");
         ns.setNgay(sc.nextInt());
+        sc.nextLine();
+        setNs(ns);
 
-        System.out.print("Nhap gioi tinh: ");
-        setGioiTinh(sc.nextLine());
+        //creat a diaChi
+        diaChi dc = new diaChi();
+        System.out.println("Nhap dia chi!!!");
+        System.out.print("Nhap quan: ");
+        dc.setQuan(sc.nextLine());
+        System.out.print("Nhap Thanh Pho: ");
+        dc.setThanhPho(sc.nextLine());
+        setDc(dc);
+
+        
     }
 
+    
     public String toString() {
-        return String.format("%-5s %-20s %-5s %-5d %-5d %-5d %-10s %-10s", getId(), getName(), getGioiTinh(), ns.getNgay(), ns.getThang(), ns.getNam(), dc.getQuan(), dc.getThanhPho()  );
+        return String.format("%-5s| %-16s| %-5s| %-5d| %-10s| ",
+         getId(), getName(), getGioiTinh(),  getNs().getNam(), getDc().getThanhPho()  );
     }
 
     public void xuatTT() {
         System.out.println(toString()); 
     }
+
+    public String toStringshort() {
+        return String.format("%-5s| %-16s| %-5s| %-5d| %-10s| ",
+         getId(), getName(), getGioiTinh(),  getNs().getNam(), getDc().getThanhPho()  );
+    }
+
+    public void xuatTTshort() {
+        System.out.println(toStringshort()); 
+    }
+
+
 
     public void xepLoai() {
         

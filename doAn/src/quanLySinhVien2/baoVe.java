@@ -1,19 +1,22 @@
 package quanLySinhVien2;
 
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class baoVe extends nhanVien {
     Scanner sc = new Scanner(System.in);
 
     private double soNgayLamViec;
-    private long luong;
+    private long Mucluong;
 
     public baoVe() {
     }
 
-    public baoVe(double soNgayLamViec, long luong) {
+    public baoVe(String id, String name, String gioiTinh, ngaySinh ns, diaChi dc, double soNgayLamViec, long Mucluong) {
+        super(id, name, gioiTinh, ns, dc);
         this.soNgayLamViec = soNgayLamViec;
-        this.luong = luong;
+        this.Mucluong = Mucluong;
+        
     }
 
     public double getSoNgayLamViec() {
@@ -33,12 +36,12 @@ public class baoVe extends nhanVien {
         this.soNgayLamViec = soNgayLamViec;
     }
 
-    public long getLuong() {
-        return luong;
+    public long getMucLuong() {
+        return Mucluong;
     }
 
-    public void setLuong(long luong) {
-        this.luong = luong;
+    public void setMucLuong(long Mucluong) {
+        this.Mucluong = Mucluong;
     }
 
     @Override
@@ -47,16 +50,18 @@ public class baoVe extends nhanVien {
 
         System.out.print("Nhap so ngay lam viec: ");
         setSoNgayLamViec(sc.nextDouble());
-        
+        System.out.print("Nhap muc luong: ");
+        setMucLuong(sc.nextLong());
     }
 
     public String toString() {
-        return super.toString() + String.format("%-10.2f %-10d",getSoNgayLamViec(), tinhLuong() );
+        return super.toString() + String.format("%-10.2f| %-10d",
+        getSoNgayLamViec(), tinhLuong() );
     }
 
     @Override   
     public long tinhLuong() {
-        return (long) soNgayLamViec*200000;
+        return (long) soNgayLamViec*Mucluong;
     }
 
 

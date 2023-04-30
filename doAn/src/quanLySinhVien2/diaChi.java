@@ -1,14 +1,23 @@
 package quanLySinhVien2;
 
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class diaChi {
     Scanner sc = new Scanner(System.in);
-    private String quan;
-    private String thanhPho;
+    public String quan;
+    public String thanhPho;
+
+    public diaChi (){
+        
+    }
+
+    public diaChi(String quan, String thanhPho){
+        this.quan = quan;
+        this.thanhPho = thanhPho;
+    }
 
     //getter/ setter
-
     public String setQuan(String Quan){
         return this.quan = quan;
     }

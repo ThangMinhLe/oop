@@ -1,5 +1,7 @@
 package quanLySinhVien2;
+
 import java.util.*;
+import java.lang.NullPointerException;
 
 public class phuHuynh {
     Scanner sc = new Scanner(System.in);

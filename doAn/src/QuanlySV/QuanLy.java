@@ -18,6 +18,7 @@ public class QuanLy {
 
     public void input() {
         int choose, n;
+        
         if(checkNull()){ 
         System.out.print("Nhap so luon doi tuong ban muon khoi tao: ");
         n = sc.nextInt();
@@ -31,6 +32,8 @@ public class QuanLy {
             System.out.println("Lua chon cua ban khong hop le!");
         }
         } while(choose > 3 || choose < 0); 
+        
+        
         switch (choose) {
             case 1:
              ps[ps.length -1] = new sinhVien();

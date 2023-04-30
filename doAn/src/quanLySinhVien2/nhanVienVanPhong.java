@@ -1,5 +1,7 @@
 package quanLySinhVien2;
 
+import java.lang.NullPointerException;
+
 public class nhanVienVanPhong extends nhanVien {
     private double soGioLamViec;
     private long luong;
@@ -7,7 +9,8 @@ public class nhanVienVanPhong extends nhanVien {
     public nhanVienVanPhong() {
     }
 
-    public nhanVienVanPhong(double soGioLamViec, long luong) {
+    public nhanVienVanPhong(String id, String name, String gioiTinh, ngaySinh ns, diaChi dc, double soGioLamViec, long luong) {
+        super(id, name, gioiTinh, ns, dc);
         this.soGioLamViec = soGioLamViec;
         this.luong = luong;
     }
@@ -33,16 +36,17 @@ public class nhanVienVanPhong extends nhanVien {
 
         System.out.print("Nhap so gio lam viec: ");
         setSoGioLamViec(sc.nextDouble());
-        luong = tinhLuong();
+        System.out.print("Nhap muc luong cua nhan vien: ");
+        setLuong(sc.nextLong());
     }
 
 
     public String toString() {
-        return this.toString() + String.format("%-10.2f %10d ", getSoGioLamViec(), luong);
+        return super.toString() + String.format("%-10.2f| %-10d ", getSoGioLamViec(), tinhLuong());
     }
 
     @Override 
     public long tinhLuong() {
-        return (long) soGioLamViec* 50000;
+        return (long) soGioLamViec* luong;
     }
 }
