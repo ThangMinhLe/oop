@@ -11,7 +11,7 @@ public class main {
         System.out.println("4: Xoa doi tuong.");
         System.out.println("5: Cap nhat.");
         System.out.println("6: Tim kiem theo ID.");
-        System.out.println("7: creat data example.");
+        System.out.println("7: Creat data example.");
         System.out.println("0: Exit!");
     
     }
@@ -51,7 +51,7 @@ public class main {
             break;
 
             case 6: 
-            System.out.print("Nhap ten ban muon tim kiem(Chi can nhap ten): ");
+            System.out.print("Nhap ten ban muon tim kiem (Chi can nhap ten): ");
             x.findByName(sc.nextLine());
             break;
 

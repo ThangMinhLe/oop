@@ -25,7 +25,6 @@ public class quanlynew {
         System.out.println("3: Bao ve.");
     }
 
-    
     //Create data!!!
     public void input() {
         int choose, choose1, n;
@@ -117,7 +116,7 @@ public class quanlynew {
     
     public void inputexamdata(){
         ngaySinh ns = new ngaySinh(2003, 03, 07);
-        diaChi dc = new diaChi("Thu Duc", "Ho Chi Minh");
+        diaChi dc = new diaChi("Thu Duc", "HCM");
         lopCuaSinhVien lop = new lopCuaSinhVien("dct", "dct1212");
         khoaCuaSinhVien khoa = new khoaCuaSinhVien("cntt", "Cong nghe");
         phuHuynh ph = new phuHuynh("Tin Dang", "0376142044");
@@ -148,11 +147,16 @@ public class quanlynew {
     public void showTT () {
     
         System.out.println("Day la bang sinh vien");
+        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s \n",
+        "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem"  );
+
         for(sinhVien x: sv){
             x.xuatTT();
         }
         
         System.out.println("Day la bang nhan vien.");
+        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s \n",
+        "ID", "Ten", "Phai", "NSinh", "DChi","", "Luong", "Mon Day", "HeSoLuong" );
         for(nhanVien x: nv) {
         x.xuatTT();
         }
@@ -176,12 +180,13 @@ public class quanlynew {
             int index;
             System.out.println("Do dai cua mang SV: " + sv.length);
             System.out.print("Nhap vi tri ban muon them: ");
+            sv = Arrays.copyOf(sv, sv.length + 1);
+            sv[sv.length - 1] = new sinhVien();
             index = sc.nextInt();
             if (index <= 0 ) {index = 1;}
             if(index >= sv.length) {index = sv.length;}
 
-            sv = Arrays.copyOf(sv, sv.length + 1);
-            sv[sv.length - 1] = new sinhVien();
+            
             for (int i = sv.length - 1; i > index - 1; i-- ){
                 sv[i] = sv[i-1];
             }
@@ -192,17 +197,37 @@ public class quanlynew {
             
             break;
             case 2:
-            // int index1;
-            // System.out.println("Do dai cua mang: " + nv.length);
-            // System.out.print("Nhap vi tri muon them vao cho nhan vien: ");
-            // index1 = sc.nextInt();
-            // if(index1 <= 0 ) {index1 = 1;}
-            // if(index1 >= nv.length ) {index1 = nv.length;}
+                    int index1, choose2;
+                    // System.out.println("Do dai cua mang: " + nv.length);
+                    // System.out.print("Nhap vi tri muon them vao cho nhan vien: ");
+                    // index1 = sc.nextInt();
+                    // if(index1 <= 0 ) {index1 = 1;}
+                    // if(index1 >= nv.length ) {index1 = nv.length;}
 
-            nv = Arrays.copyOf(nv,nv.length + 1);
-            nv[nv.length -1] = new giangVien();
+                    nv = Arrays.copyOf(nv,nv.length + 1);
+                    
+                    while(true){
+                        menu1();
+                        System.out.print("Chon doi tuong ban muon them: ");
+                        choose2 = sc.nextInt();
+                        if(choose2 >=1 && choose2 <= 3) break;
+                        else {
+                            System.out.println("Lua chon cua ban chua hop le!");
+                        }
 
-            nv[nv.length - 1].nhapTT();
+                    }
+
+                    switch(choose2){
+                            case 1:
+                            nv[nv.length - 1] = new giangVien();
+                            break;
+                            case 2:
+                            nv[nv.length - 1] = new nhanVienVanPhong();
+                            break;
+                            case 3: 
+                            nv[nv.length] = new baoVe();    
+                    }   
+                    nv[nv.length - 1]. nhapTT();
 
             break;
         }

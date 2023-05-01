@@ -56,40 +56,76 @@ public class sinhVien extends person implements chucNang {
         return this.mh = mh;
     }
     
-    @Override 
-    public void nhapTT() {
-      super.nhapTT();
+    // @Override 
+    // public void nhapTT() {
+    //   super.nhapTT();
 
-      lopCuaSinhVien lop = new lopCuaSinhVien();
-      System.out.println("Nhap lop cho sv!!!");
-      System.out.print("Nhap ten lop cho sinh vien: ");
-      lop.setTenLop(sc.nextLine());
+    //   lopCuaSinhVien lop = new lopCuaSinhVien();
+    //   System.out.println("Nhap lop cho sv!!!");
+    //   System.out.print("Nhap ten lop cho sinh vien: ");
+    //   lop.setTenLop(sc.nextLine());
+        // 
       
-      khoaCuaSinhVien khoa = new khoaCuaSinhVien();
-      System.out.println("Nhap khoa cho sinh vien!!!");
-      System.out.print("Nhap ma khoa cho sinh vien: ");
-      khoa.setMaKhoa(sc.nextLine());
-      System.out.print("Nhap ten khoa cho sinh vien: ");
-      khoa.setTenKhoa(sc.nextLine());
+    //   khoaCuaSinhVien khoa = new khoaCuaSinhVien();
+    //   System.out.println("Nhap khoa cho sinh vien!!!");
+    //   System.out.print("Nhap ma khoa cho sinh vien: ");
+    //   khoa.setMaKhoa(sc.nextLine());
+    //   System.out.print("Nhap ten khoa cho sinh vien: ");
+    //   khoa.setTenKhoa(sc.nextLine());
 
-      phuHuynh ph = new phuHuynh();
-      System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
-      System.out.print("Nhap ten cho phu huynh: ");
-      ph.setTen(sc.nextLine());
-      System.out.print("Nhap SDT cho phu huynh: ");
-      ph.setSoDienThoai(sc.nextLine());
+    //   phuHuynh ph = new phuHuynh();
+    //   System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
+    //   System.out.print("Nhap ten cho phu huynh: ");
+    //   ph.setTen(sc.nextLine());
+    //   System.out.print("Nhap SDT cho phu huynh: ");
+    //   ph.setSoDienThoai(sc.nextLine());
 
-      monhoc mh = new monhoc();
-      System.out.println("Nhap thong tin mon hoc!!! ");
-      System.out.print("Nhap ten mon hoc: ");
-      mh.setTenMonHoc(sc.nextLine());
-      System.out.print("Nhap diem cho sinh vien: ");
-      mh.setDiem(sc.nextDouble());
+    //   monhoc mh = new monhoc();
+    //   System.out.println("Nhap thong tin mon hoc!!! ");
+    //   System.out.print("Nhap ten mon hoc: ");
+    //   mh.setTenMonHoc(sc.nextLine());
+    //   System.out.print("Nhap diem cho sinh vien: ");
+    //   mh.setDiem(sc.nextDouble());
 
+    // }
+
+    @Override
+    public void nhapTT() {
+        super.nhapTT();
+    
+        lopCuaSinhVien lopMoi = new lopCuaSinhVien();
+        System.out.println("Nhap lop cho sv!!!");
+        System.out.print("Nhap ten lop cho sinh vien: ");
+        lopMoi.setTenLop(sc.nextLine());
+        setLop(lopMoi);
+    
+        khoaCuaSinhVien khoaMoi = new khoaCuaSinhVien();
+        System.out.println("Nhap khoa cho sinh vien!!!");
+        System.out.print("Nhap ma khoa cho sinh vien: ");
+        khoaMoi.setMaKhoa(sc.nextLine());
+        System.out.print("Nhap ten khoa cho sinh vien: ");
+        khoaMoi.setTenKhoa(sc.nextLine());
+        setKhoa(khoaMoi);
+    
+        phuHuynh phuHuynhMoi = new phuHuynh();
+        System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
+        System.out.print("Nhap ten cho phu huynh: ");
+        phuHuynhMoi.setTen(sc.nextLine());
+        System.out.print("Nhap SDT cho phu huynh: ");
+        phuHuynhMoi.setSoDienThoai(sc.nextLine());
+        setPh(phuHuynhMoi);
+    
+        monhoc monHocMoi = new monhoc();
+        System.out.println("Nhap thong tin mon hoc!!! ");
+        System.out.print("Nhap ten mon hoc: ");
+        monHocMoi.setTenMonHoc(sc.nextLine());
+        System.out.print("Nhap diem cho sinh vien: ");
+        monHocMoi.setDiem(sc.nextDouble());
+        setMonhoc(monHocMoi);
     }
 
     public String toString() {
-        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f  " ,
+        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f " ,
          getLop().getTenLop(), getKhoa().getTenKhoa(), getMonhoc().getTenMonHoc(), getMonhoc().getDiem());
     }
 
