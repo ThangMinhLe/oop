@@ -10,12 +10,12 @@ public class main {
         System.out.println("3: Them doi tuong.");
         System.out.println("4: Xoa doi tuong.");
         System.out.println("5: Cap nhat.");
-        System.out.println("6: Tim kiem theo ID.");
+        System.out.println("6: Tim kiem theo ten.");
         System.out.println("7: Creat data example.");
         System.out.println("0: Exit!");
     
     }
-
+    
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class main {
             break;
 
             case 5: 
-            System.out.print("Nhap ID ban muon cap nhat: ");
+            System.out.print("Nhap 'Ten' ban muon cap nhat: ");
             x.update(sc.nextLine());
             break;
 
@@ -56,7 +56,7 @@ public class main {
             break;
 
             case 7: 
-            x.inputexamdata();
+            x.docFile2();
             break;
             default:
                 System.out.println("!!!");

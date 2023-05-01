@@ -30,6 +30,13 @@ public class monhoc {
     }
 
     public void setDiem(double diem) {
+       while(true)
+        { if (diem < 0 || diem > 10){
+            System.out.print("Nhap lai diem: ");
+            diem = sc.nextDouble();
+        }
+        else break;
+    }
         this.diem = diem;
     }
 

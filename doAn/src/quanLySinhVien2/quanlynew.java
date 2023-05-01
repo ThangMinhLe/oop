@@ -2,6 +2,8 @@ package quanLySinhVien2;
 
 import java.util.*;
 import java.lang.NullPointerException;
+import java.io.*;
+import java.util.Arrays;
 
 public class quanlynew {
     Scanner sc = new Scanner(System.in);
@@ -18,8 +20,8 @@ public class quanlynew {
         System.out.println("4: Bao ve");
     } 
 
-    //menu1
-    public void menu1 () {
+        //menu1
+        public void menu1 () {
         System.out.println("1: Giang Vien.");
         System.out.println("2: Nhan vien van phong.");
         System.out.println("3: Bao ve.");
@@ -198,12 +200,6 @@ public class quanlynew {
             break;
             case 2:
                     int index1, choose2;
-                    // System.out.println("Do dai cua mang: " + nv.length);
-                    // System.out.print("Nhap vi tri muon them vao cho nhan vien: ");
-                    // index1 = sc.nextInt();
-                    // if(index1 <= 0 ) {index1 = 1;}
-                    // if(index1 >= nv.length ) {index1 = nv.length;}
-
                     nv = Arrays.copyOf(nv,nv.length + 1);
                     
                     while(true){
@@ -328,6 +324,16 @@ public class quanlynew {
             System.out.println("ID ban muon cap nhat la khong co.");
         }
     }
+
+
+        public void docFile2(){
+            file f = new file();
+            f.DocFile();
+            sv = f.resultsv();
+            nv = f.resultnv();
+
+        }
+
 
 }
 
