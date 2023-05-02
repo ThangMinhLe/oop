@@ -1,0 +1,7 @@
+sv;01;Minh Thang;nam;2000;3;7;null;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.00
+sv;02;Dang Quang Tin;nam;2000;3;7;null;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.00
+sv;03;Dang Quang Tri;nam;2000;3;7;null;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.00
+gv;04;Tin Dang;nam;1992;12;12;null;HCM;4;2000000
+vp;04;Tri Dang;nam;1992;12;12;null;HCM;200.0;50000
+bv;04;Tan Dang;nam;1992;12;12;null;HCM;28.9;250000
+gv;01;le;nam;2000;4;3;null;ajkd;7;200000
