@@ -165,10 +165,10 @@ public class quanLy {
                         }
                 
                 for (int i = nv.length -1; i > index - 1; i-- ){
-                    ps[i] = ps[i-1];
+                    nv[i] = nv[i-1];
                 }
 
-                ps[index - 1] = new giangVien();
+                nv[index - 1] = new giangVien();
                 nv[index - 1].nhapTT();
 
                 break;
@@ -186,10 +186,10 @@ public class quanLy {
                     }
                 
                 for (int i = nv.length -1; i > index - 1; i-- ){
-                    ps[i] = ps[i-1];
+                    nv[i] = nv[i-1];
                 }
 
-                ps[index - 1] = new nhanVienVanPhong();
+                nv[index - 1] = new nhanVienVanPhong();
                 nv[index - 1].nhapTT();
                 break;
                 case 4:
@@ -207,7 +207,7 @@ public class quanLy {
 
 
                 for (int i = nv.length -1; i > index - 1; i-- ){
-                    ps[i] = ps[i-1];
+                    sv[i] = sv[i-1];
                 }
 
                 nv[index - 1] = new baoVe();
@@ -305,56 +305,56 @@ public class quanLy {
 
         }
 
-        public void update () {
-            // cap nhat duoc khi mang !Null
-            if(!checkNullsv()){
-                int choose, index; 
+    //     public void update () {
+    //         // cap nhat duoc khi mang !Null
+    //         if(!checkNullsv()){
+    //             int choose, index; 
             
-            //Xu ly Logic de nhap vi tri can cap nhat thong tin.
-            for(;;){
-            System.out.print("Nhap vi tri ban muon cap nhat lai thong tin: ");
-            index = sc.nextInt(); 
-            if (index >= 1 && index <= ps.length) {
-                break;
-            }
-            else {
-                System.out.print("Vi tri ban muon cap nhat khong co!");
-            }
-            }
+    //         //Xu ly Logic de nhap vi tri can cap nhat thong tin.
+    //         for(;;){
+    //         System.out.print("Nhap vi tri ban muon cap nhat lai thong tin: ");
+    //         index = sc.nextInt(); 
+    //         if (index >= 1 && index <= ps.length) {
+    //             break;
+    //         }
+    //         else {
+    //             System.out.print("Vi tri ban muon cap nhat khong co!");
+    //         }
+    //         }
 
-            // Xu ly cap nhat thong tin cho mang
+    //         // Xu ly cap nhat thong tin cho mang
            
-        int choose1;
-        do{
-            System.out.print("Chon loai doi tuong.\n");
-            menu();
-            choose1 = sc.nextInt();
-            if (choose1 > 3 || choose1 <= 0) {
-                System.out.println("Lua chon cua ban khong hop le!");
-            }
-            } while(choose1 > 3 || choose1 <= 0); 
-            switch (choose1) {
-                case 1:
-                 ps[index - 1] = new sinhVien();
-                 break;
-                case 2:
-                ps[index - 1] = new giangVien();
-                break;
-                case 3:
-                ps[index - 1] = new coVanHocTap();
-                break;
-            } 
-                ps[index - 1].nhapTT();
-                System.out.println("Update Success!");
-            }
-        else {
-            System.out.print("Mang Rong, Khong The Cap Nhat!\n");
-        }
-     }
+    //     int choose1;
+    //     do{
+    //         System.out.print("Chon loai doi tuong.\n");
+    //         menu();
+    //         choose1 = sc.nextInt();
+    //         if (choose1 > 3 || choose1 <= 0) {
+    //             System.out.println("Lua chon cua ban khong hop le!");
+    //         }
+    //         } while(choose1 > 3 || choose1 <= 0); 
+    //         switch (choose1) {
+    //             case 1:
+    //              ps[index - 1] = new sinhVien();
+    //              break;
+    //             case 2:
+    //             ps[index - 1] = new giangVien();
+    //             break;
+    //             case 3:
+    //             ps[index - 1] = new coVanHocTap();
+    //             break;
+    //         } 
+    //             ps[index - 1].nhapTT();
+    //             System.out.println("Update Success!");
+    //         }
+    //     else {
+    //         System.out.print("Mang Rong, Khong The Cap Nhat!\n");
+    //     }
+    //  }
     
      public boolean find (String st) {
         st.replace(" ", "");
-        for(person x:ps) {
+        for(person x:sv) {
             st.equalsIgnoreCase(x.getId());
             return true;
         }

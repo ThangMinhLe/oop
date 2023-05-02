@@ -115,50 +115,19 @@ public class quanlynew {
         return false;
     }
 
-    
-    public void inputexamdata(){
-        ngaySinh ns = new ngaySinh(2003, 03, 07);
-        diaChi dc = new diaChi("Thu Duc", "HCM");
-        lopCuaSinhVien lop = new lopCuaSinhVien("dct", "dct1212");
-        khoaCuaSinhVien khoa = new khoaCuaSinhVien("cntt", "Cong nghe");
-        phuHuynh ph = new phuHuynh("Tin Dang", "0376142044");
-        monhoc mh = new monhoc( "Toan", 9.8);
-
-
-        salary sala = new salary(4, 2000000);
-
-        // sv = Arrays.copyOf(sv, sv.length + 1);
-        sv = Arrays.copyOf(sv,sv.length + 1);
-        sv[0] = new sinhVien("01", "Tin Dang", "nam" , 
-            ns, dc, lop, khoa, ph, mh);
-        
-            sv = Arrays.copyOf(sv,sv.length + 1);
-            sv[1] = new sinhVien("02", "Le Minh Thang", "nam" , 
-        ns, dc, lop, khoa, ph, mh);
-       
-        nv = Arrays.copyOf(nv,nv.length + 3);
-        nv[0] = new giangVien("01", "Le Minh Thang", "nam" , 
-        ns, dc,"CSDL", sala);
-        nv[1] = new baoVe("02", "Hoang Thai", "nam" , 
-        ns, dc, 28.9, 200000 );
-        nv[2] = new nhanVienVanPhong("03", "Le Minh Thang", "nam" , 
-        ns, dc, 100, 20000);
-
-    }
-
     public void showTT () {
     
         System.out.println("Day la bang sinh vien");
-        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s \n",
-        "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem"  );
+        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
+        "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem", "Loai"  );
 
         for(sinhVien x: sv){
             x.xuatTT();
         }
         
         System.out.println("Day la bang nhan vien.");
-        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s \n",
-        "ID", "Ten", "Phai", "NSinh", "DChi","", "Luong", "Mon Day", "HeSoLuong" );
+        System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
+        "ID", "Ten", "Phai", "NSinh", "DChi","So gio", "NLuong", "Luong", "Mon Day",  "Loai" );
         for(nhanVien x: nv) {
         x.xuatTT();
         }
@@ -245,7 +214,8 @@ public class quanlynew {
 
         switch(choose){
             case 1: 
-               if(!checkNullsv()) {int index;    
+               if(!checkNullsv()) {
+                int index;    
                 System.out.print("Nhap vi tri ban muon xoa: ");
                 index = sc.nextInt();
                 if(index <= 0) index = 1;
@@ -272,7 +242,6 @@ public class quanlynew {
             }
             break;
         }
-
         
     }
 
@@ -327,11 +296,22 @@ public class quanlynew {
 
 
         public void docFile2(){
-            file f = new file();
+            xuLyfile f = new xuLyfile();
             f.DocFile();
             sv = f.resultsv();
             nv = f.resultnv();
+        }
 
+        public void ghiFile(){
+            xuLyfile f = new xuLyfile();
+            f.returnsv(sv);
+            f.returnnv(nv);
+            f.ghiFile2();
+        }
+
+        public void clean(){
+            sv = Arrays.copyOf(sv, 0);
+            nv = Arrays.copyOf(nv, 0);
         }
 
 

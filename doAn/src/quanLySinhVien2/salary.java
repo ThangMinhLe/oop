@@ -21,6 +21,11 @@ public class salary {
     }
 
     public void setHeSoLuong(int heSoLuong) {
+        if(heSoLuong <= 1 || heSoLuong >=8) {
+            System.out.println("He so luong ban nhap chua hop le!!!");
+            System.out.print("Moi ban nhap lai he so luong: ");
+            heSoLuong = sc.nextInt();
+        }
         this.heSoLuong = heSoLuong;
     }
 

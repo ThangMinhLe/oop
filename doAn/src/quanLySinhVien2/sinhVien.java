@@ -125,16 +125,24 @@ public class sinhVien extends person implements chucNang {
     }
 
     public String toString() {
-        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f " ,
-         getLop().getTenLop(), getKhoa().getTenKhoa(), getMonhoc().getTenMonHoc(), getMonhoc().getDiem());
+        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f| %-5s " ,
+         getLop().getTenLop(), getKhoa().getTenKhoa(), getMonhoc().getTenMonHoc(), getMonhoc().getDiem(), xepLoai());
     }
 
-    // public String toString() {
-    //     return super.toString() + String.format("%-10.2f| %-10d",
-    //     getSoNgayLamViec(), tinhLuong() );
-    // }
-    public void xepLoai() {
+    public String toStringToFile(){
+        return String.format("%-2s","sv;") + super.toStringToFile() + String.format("%s;%s;%s;%s;%s;%s;%.2f" ,
+        getLop().getTenLop(),getKhoa().getMaKhoa() , getKhoa().getTenKhoa(), getPh().getTen(),getPh().getSoDienThoai() ,getMonhoc().getTenMonHoc(), getMonhoc().getDiem());
+    }
+
+
+    public char xepLoai() {
+        double diem = getMonhoc().getDiem();
+        if(diem >= 8 ) return 'A';
+        if(diem >=6.5 && diem < 8 ) return 'B';
+        if(diem >=5 && diem < 6.5 ) return 'C';
+        if(diem < 5 ) return 'D';
         
+        return ' ';
     }
 
 

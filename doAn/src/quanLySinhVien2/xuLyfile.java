@@ -2,7 +2,7 @@ package quanLySinhVien2;
 import java.io.*;
 import java.util.Arrays;
 
-public class file {
+public class xuLyfile {
     sinhVien sv[] = new sinhVien[0];
     nhanVien nv[] = new nhanVien[0]; 
 
@@ -104,10 +104,6 @@ public class file {
                 
             }
 
-
-
-
-        
         }
         } catch (IOException e) {}}
 
@@ -120,33 +116,74 @@ public class file {
         }
 
 
-        public void show(){
-            System.out.println("Day la bang sinh vien!!");
-            for(sinhVien x:sv){
-            System.out.println(x.toString());
+        public void ghiFile(){
+            
+            try {
+                for(sinhVien x:sv){
+            FileWriter fr=new FileWriter("data.txt");
+            BufferedWriter bw=new BufferedWriter(fr);
+            bw.write(x.toStringToFile());
+            bw.newLine();
+            bw.close();
+            fr.close();
             }
-            System.out.println("Day la bang nhan vien!!");
-            for(nhanVien x:nv){
-                System.out.println(x.toString());
+            System.out.println("Da ghi file sv thanh cong!!");
+        }
+            
+            catch (IOException ex) {
+                System.out.println(ex);
+            }  
+        
+            try {
+                for(nhanVien x:nv){
+            FileWriter fr=new FileWriter("data.txt");
+            BufferedWriter bw=new BufferedWriter(fr);
+            bw.write(x.toStringToFile());
+            bw.newLine();
+            bw.close();
+            fr.close();
+
             }
+            System.out.println("Da ghi file nv thanh cong!!");
+        }
+            
+            catch (IOException ex) {
+                System.out.println(ex);
+            }  
         }
 
-    public static void main(String[] args) {
-        // String st="\nHi man this is a addend data file";
-        // hocSinh hs = new hocSinh("Minh Thang", 9.0, "Ham Tan");
-        // try {
-        //     FileWriter fr=new FileWriter("data.txt" );
-        //     BufferedWriter fw=new BufferedWriter(fr);
-        //     fw.write(hs.toString());
-        //     fw.close();
-        //     fr.close();
-        //     System.out.println("Da ghi vao file");
-        // } catch (IOException ex) {
-        //     System.out.println("Error writing to file: " + ex.getMessage());
-        // }
-            file x = new file();
-            x.DocFile();
-            x.show();
+        public void ghiFile2() {
+            try (FileWriter fr = new FileWriter("data.txt",false);
+                 BufferedWriter bw = new BufferedWriter(fr)) {
+                for (sinhVien obj : sv) {
+                    if (obj instanceof sinhVien) {
+                        bw.write(obj.toStringToFile());
+                        bw.newLine();
+                    }
+                }
+                
+                for (nhanVien obj : nv) {
+                    if (obj instanceof nhanVien) {
+                        bw.write(obj.toStringToFile());
+                        bw.newLine();
+                    }
+                }
+                // bw.write(st.toString());
+                //         bw.newLine();
+                
+                System.out.println("Da ghi file thanh cong!!");
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        }
+        
 
-    }
+        public void returnsv(sinhVien[] sv){
+                this. sv = sv;
+        }
+
+        public void returnnv(nhanVien[] nv){
+                this.nv = nv;
+        }
+
 }

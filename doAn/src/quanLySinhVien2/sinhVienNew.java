@@ -100,4 +100,8 @@ return super.toString() + String.format("%-10s %-10s %-10s %-10.2f",
 getLop().getTenLop() ,getKhoa().getTenKhoa(), getMh().getTenMonHoc(), getMh().getDiem());
 }
 
+
+public char xepLoai(){
+    return ' ';
+}
 }

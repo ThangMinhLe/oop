@@ -49,11 +49,31 @@ public class giangVien extends nhanVien {
     }
 
     public String toString() {
-    return super.toString() + String.format("%-10s| %-10d| %-10s| %-10d", "",this.tinhLuong(), monGiangDay, getSala().getHeSoLuong());
+    return super.toString() + String.format("%-10s| %-10s| %-10s| %-10s| %-5s", "", "",this.tinhLuong(), monGiangDay, xepLoai());
 }
 
+    
+    public String toStringToFile() {
+        return String.format("%s;","gv") + super.toStringToFile() + String.format("%d;%d",getSala().getHeSoLuong(), getSala().getMucLuong()); 
+    }
+    
+    // Xep loai them he so luong
+    public char xepLoai() {
+            if(getSala().getHeSoLuong() >=1 && getSala().getHeSoLuong() <= 3) return 'C';
+            if(getSala().getHeSoLuong() >3 && getSala().getHeSoLuong() <= 6) return 'B';
+            if(getSala().getHeSoLuong() >6 && getSala().getHeSoLuong() <= 8) return 'A';
+        return ' ';
+    }
+
+    // Dua tren xep loai tinh phu cap cho giang vien:
+    // Voi giang vien co loai 'A': Phu cap them 2.500.000VND 
+    // Voi giang vien co loai 'B' : Phu cap them 1.500.000VND 
+    // Voi giang vien co loai 'C' : Phu cap them 500.000VND 
     @Override
     public long tinhLuong() {
+        if(xepLoai() == 'A') return sala.tinhLuongGV() + 2500000;
+        if(xepLoai() == 'B') return sala.tinhLuongGV() + 1500000;
+        if(xepLoai() == 'C') return sala.tinhLuongGV() + 500000;
         return sala.tinhLuongGV();
     }
     

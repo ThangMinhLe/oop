@@ -3,7 +3,7 @@ package quanLySinhVien2;
 import java.util.*;
 import java.lang.NullPointerException;
 
-public class person implements chucNang {
+public abstract class person implements chucNang {
     private String id;
     private String name;
     private diaChi dc;
@@ -111,6 +111,11 @@ public class person implements chucNang {
          getId(), getName(), getGioiTinh(),  getNs().getNam(), getDc().getThanhPho()  );
     }
 
+    public String toStringToFile() {
+        return String.format("%s;%s;%s;%d;%d;%d;%s;%s;",
+         getId(), getName(), getGioiTinh(),  getNs().getNam(), getNs().getThang(), getNs().getNgay(), getDc().getQuan(), getDc().getThanhPho()  );
+    }
+
     public void xuatTT() {
         System.out.println(toString()); 
     }
@@ -126,9 +131,7 @@ public class person implements chucNang {
 
 
 
-    public void xepLoai() {
-        
-    }
+    public abstract char xepLoai();
 
 
 }
