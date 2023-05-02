@@ -5,6 +5,7 @@ import java.lang.NullPointerException;
 
 public class khoaCuaSinhVien {
     Scanner sc = new Scanner(System.in);
+    
     private String maKhoa;
     private String tenKhoa;
 
