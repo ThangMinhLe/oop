@@ -49,7 +49,7 @@ public class giangVien extends nhanVien {
     }
 
     public String toString() {
-    return super.toString() + String.format("%-10s| %-10s| %-10s| %-10s| %-5s", "", "",this.tinhLuong(), monGiangDay, xepLoai());
+    return String.format("%-5s| ", "GV") + super.toString() + String.format("%-10s| %-10s| %-10s| %-10s| %-5s", "", "",this.tinhLuong(), monGiangDay, xepLoai());
 }
 
     

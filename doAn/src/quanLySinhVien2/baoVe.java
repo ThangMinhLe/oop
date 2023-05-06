@@ -55,7 +55,7 @@ public class baoVe extends nhanVien {
     }
 
     public String toString() {
-        return super.toString() + String.format("%-10s| %-10.2f| %-10d| %-10s| %-5s"," ",
+        return String.format("%-5s| ", "BV") + super.toString() + String.format("%-10s| %-10.2f| %-10d| %-10s| %-5s"," ",
         getSoNgayLamViec(), tinhLuong() , " ", xepLoai());
     }
 

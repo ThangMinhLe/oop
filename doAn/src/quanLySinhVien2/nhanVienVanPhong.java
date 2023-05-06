@@ -48,7 +48,7 @@ public class nhanVienVanPhong extends nhanVien {
 
 
     public String toString() {
-        return super.toString() + String.format("%-10.2f| %-10s| %-10d| %-10s| %-5s ", getSoGioLamViec(), " ",tinhLuong()," ", xepLoai());
+        return String.format("%-5s |", "NVVP") + super.toString() + String.format("%-10.2f| %-10s| %-10d| %-10s| %-5s ", getSoGioLamViec(), " ",tinhLuong()," ", xepLoai());
     }
 
     public String toStringToFile() {

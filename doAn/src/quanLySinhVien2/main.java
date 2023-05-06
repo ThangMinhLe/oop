@@ -21,7 +21,7 @@ public class main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        quanlynew x = new quanlynew();
+        quanly x = new quanly();
         int chon;
        for (;;){
          do {
