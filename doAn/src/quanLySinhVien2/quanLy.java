@@ -8,16 +8,21 @@ import java.util.Arrays;
 public class quanly {
     Scanner sc = new Scanner(System.in);
 
-    sinhVien sv[] = new sinhVien[0];
+    hocSinh sv[] = new hocSinh[0];
     nhanVien nv[] = new nhanVien[0];
-    // sinhVien sv[] = new sinhVien[1];
+    static int countsv = 0;
+    static int countnv = 0;
 
       //Menu
       public void menu() {
-        System.out.println("1: Sinh Vien.");
-        System.out.println("2: Giang Vien.");
-        System.out.println("3: Nhan vien van phong");
-        System.out.println("4: Bao ve");
+        System.out.println("============================================");
+        System.out.println("||   =================================    ||");
+        System.out.println("|| ||         1: Hoc sinh .           ||  ||");
+        System.out.println("|| ||         2: Giao vien .          ||  ||");
+        System.out.println("|| ||         3: Nhan vien van phong  ||  ||");
+        System.out.println("|| ||         4: Bao ve               ||  ||");
+        System.out.println("||   =================================    ||");
+        System.out.println("============================================");
     } 
 
         //menu1
@@ -55,8 +60,9 @@ public class quanly {
                         n = sc.nextInt();
                         for (int i = 0; i < n; i++) {
                             sv = Arrays.copyOf(sv, sv.length + 1);
-                            sv[sv.length - 1] = new sinhVien();
+                            sv[sv.length - 1] = new hocSinh();
                             sv[sv.length - 1].nhapTT();
+                            countsv += 1;
                         }
                     }
                     else {
@@ -69,6 +75,7 @@ public class quanly {
                         n = sc.nextInt();
                         for (int i = 0; i < n; i++) {
                             nv = Arrays.copyOf(nv, nv.length + 1);
+                            countnv += 1;
                             do {
                                 System.out.print("Chon doi tuong ban muon nhap.\n");
                                 menu1();
@@ -127,9 +134,10 @@ public class quanly {
         System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
         "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem", "Loai"  );
 
-        for(sinhVien x: sv){
+        for(hocSinh x: sv){
             x.xuatTT();
         }
+        System.out.println("Bang hoc sinh co: " + countsv + " hoc sinh");
         
         System.out.println("Day la bang nhan vien.");
         System.out.printf("%-5s| %-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
@@ -137,17 +145,25 @@ public class quanly {
         for(nhanVien x: nv) {
         x.xuatTT();
         }
+        System.out.println("Bang nhan vien co: " + countnv + " nhan vien.");
         }
 
+        public static void menuarrays(){
+            System.out.println(" ========================================================");
+            System.out.println("||                                                       ||");
+            System.out.println("||     Lua chon bang du lieu ban muon thao tac!!         ||");
+            System.out.println("||              1: Bang sinh vien.                       ||");
+            System.out.println("||              2: Bang nhan vien.                       ||");
+            System.out.println("||              0: Exit.                                 ||");
+            System.out.println("||                                                       ||");
+            System.out.println(" ========================================================  ");
+        } 
 
     public void addElement(){
         int choose;
 
         while (true){
-            System.out.println("Lua chon bang du lieu ban muon thao tac!!");
-            System.out.println("1: Bang sinh vien.");
-            System.out.println("2: Bang nhan vien.");
-            System.out.println("0: Exit.");
+            menuarrays();
             choose = sc.nextInt();
             if(choose >= 0 && choose < 3) break;
         }
@@ -158,7 +174,8 @@ public class quanly {
             System.out.println("Do dai cua mang SV: " + sv.length);
             System.out.print("Nhap vi tri ban muon them: ");
             sv = Arrays.copyOf(sv, sv.length + 1);
-            sv[sv.length - 1] = new sinhVien();
+            sv[sv.length - 1] = new hocSinh();
+            countsv += 1;
             index = sc.nextInt();
             if (index <= 0 ) {index = 1;}
             if(index >= sv.length) {index = sv.length;}
@@ -168,7 +185,7 @@ public class quanly {
                 sv[i] = sv[i-1];
             }
             
-            sinhVien svnew = new sinhVien();
+            hocSinh svnew = new hocSinh();
             svnew.nhapTT();
             sv[index - 1] = svnew;
             
@@ -176,7 +193,7 @@ public class quanly {
             case 2:
                     int index1, choose2;
                     nv = Arrays.copyOf(nv,nv.length + 1);
-                    
+                    countnv += 1;
                     while(true){
                         menu1();
                         System.out.print("Chon doi tuong ban muon them: ");
@@ -203,20 +220,17 @@ public class quanly {
             break;
         }
 
-        
     }
 
     public void deleteElenment(){
         int choose;
 
         while (true){
-            System.out.println("Lua chon bang du lieu ban muon thao tac!!");
-            System.out.println("1: Bang sinh vien.");
-            System.out.println("2: Bang nhan vien.");
-            System.out.println("0: Exit.");
+          menuarrays();
             choose = sc.nextInt();
             if(choose >= 0 && choose < 3) break;
         }
+
 
         switch(choose){
             case 1: 
@@ -233,6 +247,7 @@ public class quanly {
 
                 sv = Arrays.copyOf(sv, sv.length - 1);
                 System.out.println("Delete Success!!!");
+                countsv -= 1;
             } else {
                 System.out.println("No data");
             }
@@ -242,6 +257,7 @@ public class quanly {
             if(!checkNullnv()){
             nv = Arrays.copyOf(nv,nv.length - 1 );
             System.out.println("Delete Success!!!");
+            countnv -= 1;
             }
             else {
                 System.out.println("No data!!!");
@@ -253,21 +269,21 @@ public class quanly {
 
     public void findByName(String st) {
         st = st.toLowerCase();
-        System.out.println(st);
+        System.out.println("");
         boolean check = true;
-        for (sinhVien x : sv) {
+        for (hocSinh x : sv) {
             if (x.getName().toLowerCase().endsWith(st)) {
-                x.xuatTT();
+                x.toStringToDetail();;
                 check = false;
-                break;
+                System.out.println("");
             }
         }
         if (check) {
             for (nhanVien x : nv) {
                 if (x.getName().toLowerCase().endsWith(st)) {
-                    x.xuatTT();
+                    x.toStringToDetail();
                     check = false;
-                    break;
+                    System.out.println("");
                 }
             }
         }
@@ -280,7 +296,7 @@ public class quanly {
         ID = ID.toLowerCase();
         boolean check = true;
         
-        for (sinhVien x : sv) {
+        for (hocSinh x : sv) {
            if(x.getId().equalsIgnoreCase(ID) ){
             x.nhapTT();
             check = false;
@@ -296,7 +312,7 @@ public class quanly {
         }
 
         if(check) {
-            System.out.println("ID ban muon cap nhat la khong co.");
+            System.out.println("Ten ban muon cap nhat la khong co.");
         }
     }
 
@@ -306,6 +322,8 @@ public class quanly {
             f.DocFile();
             sv = f.resultsv();
             nv = f.resultnv();
+            countsv = sv.length;
+            countnv = nv.length;
         }
 
         public void ghiFile(){
@@ -313,11 +331,14 @@ public class quanly {
             f.returnsv(sv);
             f.returnnv(nv);
             f.ghiFile2();
+            
         }
 
         public void clean(){
             sv = Arrays.copyOf(sv, 0);
             nv = Arrays.copyOf(nv, 0);
+            countsv = 0;
+            countnv = 0;
         }
 
 

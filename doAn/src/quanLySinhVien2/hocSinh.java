@@ -1,20 +1,22 @@
 package quanLySinhVien2;
 
 import java.lang.NullPointerException;
-import java.util.*;;
+import java.util.*;
 
-public class sinhVien extends person implements chucNang {
+import javax.sound.midi.Soundbank;;
+
+public class hocSinh extends person implements chucNang {
     private lopCuaSinhVien lop;
     private khoaCuaSinhVien khoa;
     private phuHuynh ph;
-    private monhoc mh;
+    private monhoc[] mh;
 
-    public sinhVien() {
+    public hocSinh() {
 
     }
 
-    public sinhVien(String id, String name, String gioiTinh, ngaySinh ns,
-     diaChi dc, lopCuaSinhVien lop, khoaCuaSinhVien khoa, phuHuynh ph, monhoc mh) {
+    public hocSinh(String id, String name, String gioiTinh, ngaySinh ns,
+     diaChi dc, lopCuaSinhVien lop, khoaCuaSinhVien khoa, phuHuynh ph, monhoc[] mh) {
         super( id, name, gioiTinh, ns, dc);
 
         this.lop = lop;
@@ -47,13 +49,22 @@ public class sinhVien extends person implements chucNang {
         return this.ph = ph;
     }
 
-    public monhoc getMonhoc() {
+    public monhoc[] getMonhoc() {
         return mh;
     }
 
 
-    public monhoc setMonhoc(monhoc mh) {
+    public monhoc[] setMonhoc(monhoc mh[]) {
         return this.mh = mh;
+    }
+
+    public double getAVGDiem(){
+        double diem = 0.0;
+        for(monhoc m:mh){
+            diem += m.getDiem();
+        }
+
+        return diem/mh.length;
     }
     
     // @Override 
@@ -115,28 +126,70 @@ public class sinhVien extends person implements chucNang {
         phuHuynhMoi.setSoDienThoai(sc.nextLine());
         setPh(phuHuynhMoi);
     
-        monhoc monHocMoi = new monhoc();
-        System.out.println("Nhap thong tin mon hoc!!! ");
-        System.out.print("Nhap ten mon hoc: ");
-        monHocMoi.setTenMonHoc(sc.nextLine());
-        System.out.print("Nhap diem cho sinh vien: ");
-        monHocMoi.setDiem(sc.nextDouble());
-        setMonhoc(monHocMoi);
+        // Nhap mang mon hoc cho sinh vien.
+        monhoc mh[] = new monhoc[0];
+        while(true){
+                int choose;
+                for(;;)
+                    {    
+                    System.out.println("Ban da nhap xong mon hoc chua?");
+                    System.out.println("1: Done.");
+                    System.out.println("2: TT Nhap.");
+                    choose = sc.nextInt();
+                    sc.nextLine();
+                    if(choose == 1 || choose == 2){
+                        break;
+                    }
+                    else {
+                        System.out.println("Lua chon cua ban khong dung!!!");
+                    }
+                }
+                if(choose == 2) {
+                    mh = Arrays.copyOf(mh, mh.length + 1);
+                    mh[mh.length-1] = new monhoc();
+                    System.out.print("Nhap ten mon hoc: ");
+                    mh[mh.length-1].setTenMonHoc(sc.nextLine());
+                    System.out.print("Nhap diem cho mon hoc: ");
+                    mh[mh.length-1].setDiem(sc.nextDouble());
+                }
+                if(choose == 1) { break; }
+               
+        }
+        setMonhoc(mh);
     }
 
     public String toString() {
-        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f| %-5s " ,
-         getLop().getTenLop(), getKhoa().getTenKhoa(), getMonhoc().getTenMonHoc(), getMonhoc().getDiem(), xepLoai());
+        return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f| %-5s",
+            getLop().getTenLop().substring(0, Math.min(10, getLop().getTenLop().length())),
+            getKhoa().getTenKhoa().substring(0, Math.min(10, getKhoa().getTenKhoa().length())),
+            "".substring(0, Math.min(10, "".length())),
+            getAVGDiem(),
+            xepLoai());
     }
+    
 
     public String toStringToFile(){
         return String.format("%-2s","sv;") + super.toStringToFile() + String.format("%s;%s;%s;%s;%s;%s;%.2f" ,
-        getLop().getTenLop(),getKhoa().getMaKhoa() , getKhoa().getTenKhoa(), getPh().getTen(),getPh().getSoDienThoai() ,getMonhoc().getTenMonHoc(), getMonhoc().getDiem());
+        getLop().getTenLop(),getKhoa().getMaKhoa() , getKhoa().getTenKhoa(), getPh().getTen(),getPh().getSoDienThoai() ," ", getAVGDiem());
     }
 
+    public void toStringToDetail(){
+        super.toStringToDetail();
+        System.out.println("Lop cua sinh vien: " + getLop().getTenLop());
+        System.out.println("Khoa cua sinh vien: (Ma khoa) " + getKhoa().getTenKhoa() +
+         ", (Ten khoa) " + getKhoa().getTenKhoa());
+        System.out.println("Thong tin phu huynh!");
+        System.out.println("Ten phu huynh: " + getPh().getTen());
+        System.out.println("SDT phu huynh: " + getPh().getSoDienThoai());
+        System.out.println("Cac mon hoc cua sinh vien!");
+        for(monhoc  mh:mh) {
+            System.out.println("Mon hoc cua sinh vien: " + mh.getTenMonHoc());
+            System.out.println("Diem: " + mh.getDiem());
+        }
+    }
 
     public char xepLoai() {
-        double diem = getMonhoc().getDiem();
+        double diem = getAVGDiem();
         if(diem >= 8 ) return 'A';
         if(diem >=6.5 && diem < 8 ) return 'B';
         if(diem >=5 && diem < 6.5 ) return 'C';

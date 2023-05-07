@@ -55,8 +55,11 @@ public class baoVe extends nhanVien {
     }
 
     public String toString() {
-        return String.format("%-5s| ", "BV") + super.toString() + String.format("%-10s| %-10.2f| %-10d| %-10s| %-5s"," ",
-        getSoNgayLamViec(), tinhLuong() , " ", xepLoai());
+        return String.format("%-5s| ", "BV") + super.toString() + String.format("%-10s| %-10.2f| %-10s| %-10s| %-5s"," ",
+        getSoNgayLamViec(), 
+        String.valueOf(tinhLuong()).substring(0, Math.min(10, String.valueOf(tinhLuong()).length())) ,
+        " ",
+        xepLoai());
     }
 
     public String toStringToFile(){
@@ -67,6 +70,16 @@ public class baoVe extends nhanVien {
         if( soNgayLamViec >=15 && soNgayLamViec <= 25) return 'B';
         if( soNgayLamViec >=10 && soNgayLamViec <= 15) return 'C';
         return ' ';
+    }
+
+    public void toStringToDetail(){
+        super.toStringToDetail();
+        System.out.println("So ngay lam viec: " + getSoNgayLamViec());
+        System.out.println("Muc luong: " + getMucLuong());
+        System.out.println("Luong: " + tinhLuong());
+        System.out.println("Xep Loai: " + xepLoai());
+
+    
     }
 
     //Neu xep loai cua bao ve la 'A', se duoc thuong them 1.000.000VND

@@ -48,11 +48,22 @@ public class nhanVienVanPhong extends nhanVien {
 
 
     public String toString() {
-        return String.format("%-5s |", "NVVP") + super.toString() + String.format("%-10.2f| %-10s| %-10d| %-10s| %-5s ", getSoGioLamViec(), " ",tinhLuong()," ", xepLoai());
+        return String.format("%-5s| ", "NVVP") + super.toString() + String.format("%-10.2f| %-10s| %-10s| %-10s| %-5s ", 
+        getSoGioLamViec(), " ",
+        String.valueOf(tinhLuong()).substring(0, Math.min(10, String.valueOf(tinhLuong()).length())) ,
+        " ", xepLoai());
     }
 
     public String toStringToFile() {
         return String.format("%s;","vp") + super.toStringToFile() + String.format("%.1f;%d",getSoGioLamViec(), getLuong());
+    }
+
+    public void toStringToDetail(){
+            super.toStringToDetail();
+            System.out.println("So gio lam viec: " + getSoGioLamViec());
+            System.out.println("Muc Luong: " + getLuong());
+            System.out.println("Luong: " + tinhLuong());
+            System.out.println("Xep Loai: " + xepLoai());
     }
 
     public char xepLoai(){

@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Arrays;
 
 public class xuLyfile {
-    sinhVien sv[] = new sinhVien[0];
+    hocSinh sv[] = new hocSinh[0];
     nhanVien nv[] = new nhanVien[0]; 
 
     public void DocFile(){
@@ -38,15 +38,18 @@ public class xuLyfile {
                 phuHuynh ph = new phuHuynh();
                 ph.setTen(s[12]);
                 ph.setSoDienThoai(s[13]);
-                monhoc mh = new monhoc();
-                mh.setTenMonHoc(s[14]);
-                mh.setDiem(Double.parseDouble(s[15]));
-                sv[sv.length - 1] = new sinhVien(id, name, gt, ns, dc, lop, khoa, ph, mh);
+
+                monhoc[] mh = new monhoc[1];
+                mh[0] = new monhoc();
+                mh[0].setTenMonHoc(s[14]);
+                mh[0].setDiem(Double.parseDouble(s[15]));
+                sv[sv.length - 1] = new hocSinh(id, name, gt, ns, dc, lop, khoa, ph, mh);
                 
                 // float d=Float.parseFloat(s[1]);
                 // String qq=s[2];
                 // ds[0]=new sinhVien(ht, d, qq);
                 //  i++;
+
             }
 
             if(ht.equalsIgnoreCase("gv")){
@@ -107,7 +110,7 @@ public class xuLyfile {
         }
         } catch (IOException e) {}}
 
-        public sinhVien[] resultsv(){
+        public hocSinh[] resultsv(){
             return sv;
         }
 
@@ -119,7 +122,7 @@ public class xuLyfile {
         public void ghiFile(){
             
             try {
-                for(sinhVien x:sv){
+                for(hocSinh x:sv){
             FileWriter fr=new FileWriter("data.txt");
             BufferedWriter bw=new BufferedWriter(fr);
             bw.write(x.toStringToFile());
@@ -155,8 +158,8 @@ public class xuLyfile {
         public void ghiFile2() {
             try (FileWriter fr = new FileWriter("data.txt",false);
                  BufferedWriter bw = new BufferedWriter(fr)) {
-                for (sinhVien obj : sv) {
-                    if (obj instanceof sinhVien) {
+                for (hocSinh obj : sv) {
+                    if (obj instanceof hocSinh) {
                         bw.write(obj.toStringToFile());
                         bw.newLine();
                     }
@@ -178,7 +181,7 @@ public class xuLyfile {
         }
         
 
-        public void returnsv(sinhVien[] sv){
+        public void returnsv(hocSinh[] sv){
                 this. sv = sv;
         }
 

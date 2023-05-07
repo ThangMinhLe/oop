@@ -49,12 +49,16 @@ public class giangVien extends nhanVien {
     }
 
     public String toString() {
-    return String.format("%-5s| ", "GV") + super.toString() + String.format("%-10s| %-10s| %-10s| %-10s| %-5s", "", "",this.tinhLuong(), monGiangDay, xepLoai());
+    return String.format("%-5s| ", "GV") +
+                 super.toString() + String.format("%-10s| %-10s| %-10s| %-10s| %-5s",
+                "", "",
+                String.valueOf(tinhLuong()).substring(0, Math.min(10, String.valueOf(tinhLuong()).length())) , 
+                monGiangDay.substring(0, Math.min(10, getMonGiangDay().length() )), xepLoai());
 }
 
     
     public String toStringToFile() {
-        return String.format("%s;","gv") + super.toStringToFile() + String.format("%d;%d",getSala().getHeSoLuong(), getSala().getMucLuong()); 
+        return String.format("%s;","gv") + super.toStringToFile() + String.format("%s;%d;%d",getMonGiangDay(),getSala().getHeSoLuong(), getSala().getMucLuong()); 
     }
     
     // Xep loai them he so luong
@@ -63,6 +67,16 @@ public class giangVien extends nhanVien {
             if(getSala().getHeSoLuong() >3 && getSala().getHeSoLuong() <= 6) return 'B';
             if(getSala().getHeSoLuong() >6 && getSala().getHeSoLuong() <= 8) return 'A';
         return ' ';
+    }
+
+    public void toStringToDetail(){
+            super.toStringToDetail();
+            System.out.println("Mon Giang Day: " + getMonGiangDay());
+            System.out.println("He so luong: " + getSala().getHeSoLuong());
+            System.out.println("Muc luong: " + getSala().getMucLuong());
+            System.out.println("Luong: " + tinhLuong());
+            System.out.println("Xep Loai: " + xepLoai());
+
     }
 
     // Dua tren xep loai tinh phu cap cho giang vien:
