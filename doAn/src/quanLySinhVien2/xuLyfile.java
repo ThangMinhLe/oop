@@ -11,7 +11,6 @@ public class xuLyfile {
         FileReader fr= new FileReader("creatData.txt");
         BufferedReader br = new BufferedReader(fr);
         String st;int i=0; 
-        // n= Integer.parseInt(br.readLine());
         while(true){
         st=br.readLine(); 
         if(st==null) break;
@@ -44,12 +43,6 @@ public class xuLyfile {
                 mh[0].setTenMonHoc(s[14]);
                 mh[0].setDiem(Double.parseDouble(s[15]));
                 sv[sv.length - 1] = new hocSinh(id, name, gt, ns, dc, lop, khoa, ph, mh);
-                
-                // float d=Float.parseFloat(s[1]);
-                // String qq=s[2];
-                // ds[0]=new sinhVien(ht, d, qq);
-                //  i++;
-
             }
 
             if(ht.equalsIgnoreCase("gv")){

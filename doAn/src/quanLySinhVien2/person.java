@@ -105,13 +105,6 @@ public abstract class person implements chucNang {
         
     }
 
-    
-    // public String toString() {
-    //     return String.format("%-5s| %-16s| %-5s| %-5d| %-10s| ",
-    //      getId().substring(0, Math.min(2, getName().length())), getName().substring(0, Math.min(16, getName().length())), getGioiTinh().substring(0, Math.min(4, getName().length())), 
-    //      String.valueOf(getNs().getNam()).substring(0, Math.min(5, getName().length()))
-    //      , getDc().getThanhPho().substring(0, Math.min(9, getName().length()))  );
-    // }
 
     public String toString() {
         return String.format("%-5s| %-16s| %-5s| %-5s| %-10s| ",

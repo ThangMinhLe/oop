@@ -67,38 +67,6 @@ public class hocSinh extends person implements chucNang {
         return diem/mh.length;
     }
     
-    // @Override 
-    // public void nhapTT() {
-    //   super.nhapTT();
-
-    //   lopCuaSinhVien lop = new lopCuaSinhVien();
-    //   System.out.println("Nhap lop cho sv!!!");
-    //   System.out.print("Nhap ten lop cho sinh vien: ");
-    //   lop.setTenLop(sc.nextLine());
-        // 
-      
-    //   khoaCuaSinhVien khoa = new khoaCuaSinhVien();
-    //   System.out.println("Nhap khoa cho sinh vien!!!");
-    //   System.out.print("Nhap ma khoa cho sinh vien: ");
-    //   khoa.setMaKhoa(sc.nextLine());
-    //   System.out.print("Nhap ten khoa cho sinh vien: ");
-    //   khoa.setTenKhoa(sc.nextLine());
-
-    //   phuHuynh ph = new phuHuynh();
-    //   System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
-    //   System.out.print("Nhap ten cho phu huynh: ");
-    //   ph.setTen(sc.nextLine());
-    //   System.out.print("Nhap SDT cho phu huynh: ");
-    //   ph.setSoDienThoai(sc.nextLine());
-
-    //   monhoc mh = new monhoc();
-    //   System.out.println("Nhap thong tin mon hoc!!! ");
-    //   System.out.print("Nhap ten mon hoc: ");
-    //   mh.setTenMonHoc(sc.nextLine());
-    //   System.out.print("Nhap diem cho sinh vien: ");
-    //   mh.setDiem(sc.nextDouble());
-
-    // }
 
     @Override
     public void nhapTT() {
@@ -106,6 +74,8 @@ public class hocSinh extends person implements chucNang {
     
         lopCuaSinhVien lopMoi = new lopCuaSinhVien();
         System.out.println("Nhap lop cho sv!!!");
+        System.out.println("Nhap ma lop cho sinh vien: ");
+        lopMoi.setMaLop(sc.nextLine());
         System.out.print("Nhap ten lop cho sinh vien: ");
         lopMoi.setTenLop(sc.nextLine());
         setLop(lopMoi);

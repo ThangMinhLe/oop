@@ -2,6 +2,7 @@ package quanLySinhVien2;
 
 import java.util.*;
 import java.lang.NullPointerException;
+import java.sql.Blob;
 import java.io.*;
 import java.util.Arrays;
 
@@ -10,6 +11,9 @@ public class quanly {
 
     hocSinh sv[] = new hocSinh[0];
     nhanVien nv[] = new nhanVien[0];
+    monhoc mh[] = new monhoc[0];
+    khoaCuaSinhVien khoa[] = new khoaCuaSinhVien[0];
+    lopCuaSinhVien lop[] = new lopCuaSinhVien[0];
     static int countsv = 0;
     static int countnv = 0;
 
@@ -128,7 +132,7 @@ public class quanly {
         return false;
     }
 
-    public void showTT () {
+    public void showTTSV () {
     
         System.out.println("Day la bang sinh vien");
         System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
@@ -139,13 +143,54 @@ public class quanly {
         }
         System.out.println("Bang hoc sinh co: " + countsv + " hoc sinh");
         
-        System.out.println("Day la bang nhan vien.");
-        System.out.printf("%-5s| %-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
-        "...","ID", "Ten", "Phai", "NSinh", "DChi","So gio", "NLuong", "Luong", "Mon Day",  "Loai" );
-        for(nhanVien x: nv) {
-        x.xuatTT();
         }
-        System.out.println("Bang nhan vien co: " + countnv + " nhan vien.");
+
+        public void showTTSVByKhoa (String khoa) {
+            boolean check = true;
+            System.out.println("Day la bang sinh vien");
+            System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
+            "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem", "Loai"  );
+    
+            for(hocSinh x: sv){
+                if(x.getKhoa().getMaKhoa().equalsIgnoreCase(khoa))
+                x.xuatTT();
+                check = false;
+            }
+
+            if(check) {
+                System.out.println("Khoa khong co sinh vien!");
+            }
+          
+            
+            }
+        
+            public void showTTSVByLop (String lop) {
+                boolean check = true;
+                System.out.println("Day la bang sinh vien");
+                System.out.printf("%-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
+                "ID", "Ten", "Phai", "NSinh", "DChi", "Lop", "Khoa", "Mon Hoc", " Diem", "Loai"  );
+        
+                for(hocSinh x: sv){
+                    if(x.getLop().getMaLop().equalsIgnoreCase(lop))
+                    x.xuatTT();
+                    check = false;
+                }
+    
+                if(check) {
+                    System.out.println("Khoa khong co sinh vien!");
+                }
+              
+                
+                }
+
+        public void showTTNV (){
+            System.out.println("Day la bang nhan vien.");
+            System.out.printf("%-5s| %-5s| %-16s| %-5s| %-5s| %-10s| %-10s| %-10s| %-10s| %-10s| %-5s \n",
+            "...","ID", "Ten", "Phai", "NSinh", "DChi","So gio", "NLuong", "Luong", "Mon Day",  "Loai" );
+            for(nhanVien x: nv) {
+            x.xuatTT();
+            }
+            System.out.println("Bang nhan vien co: " + countnv + " nhan vien.");
         }
 
         public static void menuarrays(){
@@ -159,17 +204,8 @@ public class quanly {
             System.out.println(" ========================================================  ");
         } 
 
-    public void addElement(){
-        int choose;
-
-        while (true){
-            menuarrays();
-            choose = sc.nextInt();
-            if(choose >= 0 && choose < 3) break;
-        }
-
-        switch(choose){
-            case 1:
+    public void addElementSV(){
+    
             int index;
             System.out.println("Do dai cua mang SV: " + sv.length);
             System.out.print("Nhap vi tri ban muon them: ");
@@ -189,9 +225,10 @@ public class quanly {
             svnew.nhapTT();
             sv[index - 1] = svnew;
             
-            break;
-            case 2:
-                    int index1, choose2;
+    }
+
+    public void addElementNV() {
+        int index1, choose2;
                     nv = Arrays.copyOf(nv,nv.length + 1);
                     countnv += 1;
                     while(true){
@@ -217,23 +254,12 @@ public class quanly {
                     }   
                     nv[nv.length - 1]. nhapTT();
 
-            break;
-        }
-
     }
 
-    public void deleteElenment(){
+    public void deleteElenmentSV(){
         int choose;
 
-        while (true){
-          menuarrays();
-            choose = sc.nextInt();
-            if(choose >= 0 && choose < 3) break;
-        }
-
-
-        switch(choose){
-            case 1: 
+        
                if(!checkNullsv()) {
                 int index;    
                 System.out.print("Nhap vi tri ban muon xoa: ");
@@ -251,10 +277,11 @@ public class quanly {
             } else {
                 System.out.println("No data");
             }
-            break;
+       
+    }
 
-            case 2: 
-            if(!checkNullnv()){
+    public void deleteElenmentNV () {
+        if(!checkNullnv()){
             nv = Arrays.copyOf(nv,nv.length - 1 );
             System.out.println("Delete Success!!!");
             countnv -= 1;
@@ -262,12 +289,9 @@ public class quanly {
             else {
                 System.out.println("No data!!!");
             }
-            break;
-        }
-        
     }
 
-    public void findByName(String st) {
+    public void findByNameSV(String st) {
         st = st.toLowerCase();
         System.out.println("");
         boolean check = true;
@@ -278,7 +302,17 @@ public class quanly {
                 System.out.println("");
             }
         }
+        
         if (check) {
+            System.out.println("No matching record found.");
+        }
+    }
+
+    public void findByNameNV (String st) {
+        Boolean check = true;
+        st = st.toLowerCase();
+        System.out.println("");
+              if (check) {
             for (nhanVien x : nv) {
                 if (x.getName().toLowerCase().endsWith(st)) {
                     x.toStringToDetail();
@@ -287,12 +321,14 @@ public class quanly {
                 }
             }
         }
-        if (check) {
-            System.out.println("No matching record found.");
+
+        if(check) {
+            System.out.println("Khong co ten ban muon tim!!!");
         }
     }
     
-    public void update(String ID){
+
+    public void updateSV(String ID){
         ID = ID.toLowerCase();
         boolean check = true;
         
@@ -302,21 +338,51 @@ public class quanly {
             check = false;
            }
         }
-        if (check) {
-            for(nhanVien x:nv){
-                if(x.getId().equalsIgnoreCase(ID)){
-                x.nhapTT();
-                check = false;
-                }
-            }
-        }
-
         if(check) {
             System.out.println("Ten ban muon cap nhat la khong co.");
         }
     }
 
+    public void updateNV(String ID) {
+        boolean check = true;
+        ID = ID.toLowerCase();
 
+        for(nhanVien x:nv){
+            if(x.getId().equalsIgnoreCase(ID)){
+            x.nhapTT();
+            check = false;
+            }
+        }
+
+        if(check) {
+            System.out.println("Khong co ID ban muon cap nhat!!!!");
+        }
+    }
+
+    //Mon hoc 
+    public void showMH() {
+        System.out.printf("%-15s| %-15s","Ma Mon Hoc","Ten mon hoc");
+    }
+
+    // Bang Lop
+    public void showLopSV() {
+        System.out.println("Day la bang lop!");
+        System.out.printf("%-10s| %-10s","Ma Lop","Ten Lop");
+        for(lopCuaSinhVien x:lop) {
+            x.showLop();
+        }
+    }
+
+    public void showKhoaSV() {
+        System.out.println("Day la bang lop!");
+        System.out.printf("%-10s| %-10s","Ma Lop","Ten Lop");
+        for(khoaCuaSinhVien x:khoa) {
+            x.showKhoa();
+        }
+    }
+
+
+    //doc File
         public void docFile2(){
             xuLyfile f = new xuLyfile();
             f.DocFile();
