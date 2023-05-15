@@ -329,9 +329,9 @@ public class quanly {
                         break;
                     }
                 }
-                if(!checkKhoa){
-                    System.out.println("Ma khoa ban nhap khong co!!!");
-                }
+                // if(!checkKhoa){
+                //     System.out.println("Ma khoa ban nhap khong co!!!");
+                // }
 
                 }while (checkKhoa);
 
