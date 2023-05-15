@@ -4,6 +4,7 @@ import java.util.*;
 import java.lang.NullPointerException;
 
 public abstract class person implements chucNang {
+    // SetUp cho thuoc tinh ID la khoa chinh cua doi  tuong person.
     private String id;
     private String name;
     private diaChi dc;
@@ -28,8 +29,8 @@ public abstract class person implements chucNang {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String setId(String id) {
+        return this.id = id;
     }
 
     public String getName() {
@@ -72,8 +73,8 @@ public abstract class person implements chucNang {
     }
 
     public void nhapTT() {
-        System.out.print("Nhap ID:  ");
-        setId(sc.nextLine());
+        // System.out.print("Nhap ID:  ");
+        // setId(sc.nextLine());
         System.out.print("Nhap ten: ");
         setName(sc.nextLine());
 

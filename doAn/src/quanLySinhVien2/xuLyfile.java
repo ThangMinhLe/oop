@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class xuLyfile {
     hocSinh sv[] = new hocSinh[0];
     nhanVien nv[] = new nhanVien[0]; 
+    lopCuaSinhVien lop[] = new lopCuaSinhVien[0];
+    khoaCuaSinhVien khoa[] = new khoaCuaSinhVien[0];
+
 
     public void DocFile(){
         try {
@@ -100,6 +103,23 @@ public class xuLyfile {
                 
             }
 
+            if(ht.equalsIgnoreCase("lop")){
+                String maLop = s[1];
+                String tenLop = s[2];
+                lop = Arrays.copyOf(lop, lop.length + 1);
+                lop[lop.length - 1] = new lopCuaSinhVien(maLop, tenLop);
+            }
+
+            
+            if(ht.equalsIgnoreCase("khoa")){
+                String maKhoa = s[1];
+                String tenKhoa = s[2];
+                khoa = Arrays.copyOf(khoa, khoa.length + 1);
+                khoa[khoa.length - 1] = new khoaCuaSinhVien(maKhoa, tenKhoa);
+
+                
+            }
+
         }
         } catch (IOException e) {}}
 
@@ -109,6 +129,14 @@ public class xuLyfile {
 
         public nhanVien[] resultnv(){
             return nv;
+        }
+
+        public lopCuaSinhVien[] resultlop(){ 
+            return lop;
+        }
+
+        public khoaCuaSinhVien[] resultkhoa() {
+            return khoa;
         }
 
 

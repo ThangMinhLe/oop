@@ -35,15 +35,15 @@ public class khoaCuaSinhVien {
 
     //Nhap TT
     public void nhap() {
-        System.out.print("Nhap ma khoa: ");
-        setMaKhoa(sc.nextLine());
+       
+
         System.out.print("Nhap ten cho khoa: ");
         setTenKhoa(sc.nextLine());
     }
 
 
     public String toString(){
-        return String.format("%-10s %-10s", maKhoa, tenKhoa);
+        return String.format("%-10s| %-10s", maKhoa, tenKhoa);
     }
 
     public void showKhoa(){

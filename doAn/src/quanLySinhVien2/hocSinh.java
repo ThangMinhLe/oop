@@ -72,24 +72,24 @@ public class hocSinh extends person implements chucNang {
     public void nhapTT() {
         super.nhapTT();
     
-        lopCuaSinhVien lopMoi = new lopCuaSinhVien();
-        System.out.println("Nhap lop cho sv!!!");
-        System.out.println("Nhap ma lop cho sinh vien: ");
-        lopMoi.setMaLop(sc.nextLine());
-        System.out.print("Nhap ten lop cho sinh vien: ");
-        lopMoi.setTenLop(sc.nextLine());
-        setLop(lopMoi);
+        // lopCuaSinhVien lopMoi = new lopCuaSinhVien();
+        // System.out.println("Nhap lop cho sv!!!");
+        // System.out.print("Nhap ma lop cho sinh vien: ");
+        // lopMoi.setMaLop(sc.nextLine());
+        // System.out.print("Nhap ten lop cho sinh vien: ");
+        // lopMoi.setTenLop(sc.nextLine());
+        // setLop(lopMoi);
     
-        khoaCuaSinhVien khoaMoi = new khoaCuaSinhVien();
-        System.out.println("Nhap khoa cho sinh vien!!!");
-        System.out.print("Nhap ma khoa cho sinh vien: ");
-        khoaMoi.setMaKhoa(sc.nextLine());
-        System.out.print("Nhap ten khoa cho sinh vien: ");
-        khoaMoi.setTenKhoa(sc.nextLine());
-        setKhoa(khoaMoi);
+        // khoaCuaSinhVien khoaMoi = new khoaCuaSinhVien();
+        // System.out.println("Nhap khoa cho sinh vien!!!");
+        // System.out.print("Nhap ma khoa cho sinh vien: ");
+        // khoaMoi.setMaKhoa(sc.nextLine());
+        // System.out.print("Nhap ten khoa cho sinh vien: ");
+        // khoaMoi.setTenKhoa(sc.nextLine());
+        // setKhoa(khoaMoi);
     
         phuHuynh phuHuynhMoi = new phuHuynh();
-        System.out.println("Nhap thong tin phu huynh cua sinh vien: ");
+        System.out.println("Nhap thong tin phu huynh cua sinh vien!!!");
         System.out.print("Nhap ten cho phu huynh: ");
         phuHuynhMoi.setTen(sc.nextLine());
         System.out.print("Nhap SDT cho phu huynh: ");
@@ -128,11 +128,13 @@ public class hocSinh extends person implements chucNang {
         setMonhoc(mh);
     }
 
+    
+
     public String toString() {
         return super.toString() + String.format("%-10s| %-10s| %-10s| %-10.2f| %-5s",
             getLop().getTenLop().substring(0, Math.min(10, getLop().getTenLop().length())),
             getKhoa().getTenKhoa().substring(0, Math.min(10, getKhoa().getTenKhoa().length())),
-            "".substring(0, Math.min(10, "".length())),
+            getPh().getTen().substring(0, Math.min(10, getPh().getTen().length())),
             getAVGDiem(),
             xepLoai());
     }

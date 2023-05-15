@@ -1,6 +1,12 @@
 sv;01;Minh Thang;nam;2000;03;07;Thu Duc;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.0
 sv;02;Dang Quang Tin;nam;2000;03;07;Thu Duc;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.0
-sv;03;Dang Quang Tri123123123;nam;2000;03;07;Thu Duc;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.0
+sv;03;Dang Quang Tri;nam;2000;03;07;Thu Duc;HCM;DCT;Cntt;Cntt;Tin;02869;Toan;9.0
 gv;04;Tin Dang;nam;1992;12;12;Thu Duc;HCM;Lap Trinh Huong Doi Tuong;4;2000000
-vp;04;Tri Dang;nam;1992;12;12;Thu Duc;HCM;200;50000
-bv;04;Tan Dang;nam;1992;12;12;Thu Duc;HCM;28.9;250000
+vp;05;Tri Dang;nam;1992;12;12;Thu Duc;HCM;200;50000
+bv;06;Tan Dang;nam;1992;12;12;Thu Duc;HCM;28.9;250000
+khoa;CNTT;CONG NGHE TT
+khoa;TO;TOAN
+khoa;CN;CONG NGHE
+lop;DCT; DTC1212
+lop;DCB; DTC1213
+lop;DCA; DTC1214

@@ -127,7 +127,7 @@ public class main2 {
                         break;
 
                         case 2: 
-                        System.out.print("Nhap ID ban muon Update!!!");
+                        System.out.print("Nhap ID ban muon tim kiem: ");
                             x.updateSV(sc.nextLine());
                         break;
 
@@ -136,7 +136,7 @@ public class main2 {
                         break;
 
                         case 4: 
-                        System.out.print("Nhap Ten ban muon Update!!!");
+                        System.out.print("Nhap Ten ban muon Update: ");
                         x.findByNameSV(sc.nextLine());
                         break;
 
@@ -170,7 +170,7 @@ public class main2 {
                             break;
 
                             case 2: 
-                                System.out.print("Nhap ID ban muon Update!!!");
+                                System.out.print("Nhap ID ban muon tim kiem: ");
                                 x.updateSV(sc.nextLine());
                             break;
 
@@ -179,12 +179,12 @@ public class main2 {
                             break;
 
                                 case 4: 
-                                System.out.print("Nhap Ten ban muon Update!!!");
+                                System.out.print("Nhap Ten ban muon Update: ");
                                 x.findByNameNV(sc.nextLine());
                             break;
 
                             case 5: 
-                                x.showTTSV();
+                                x.showTTNV();
                             break;
 
                             case 6: 
@@ -209,11 +209,11 @@ public class main2 {
 
                             switch (choose3) {
                                 case 1: 
-                                    x.showKhoaSV();;
+                                    x.addKhoa();;
                                 break;
 
                                 case 2: 
-                                    x.deleteElenmentSV();;
+                                    x.deleteKhoa();
                                 break;
 
                                 case 3: 
@@ -240,11 +240,11 @@ public class main2 {
 
                             switch (choose4) {
                                 case 1: 
-                                    x.showLopSV();
+                                    x.addLop();;
                                 break;
 
                                 case 2: 
-                                    x.deleteElenmentNV();
+                                    x.deleteLop();
                                 break;
 
                                 case 3: 
