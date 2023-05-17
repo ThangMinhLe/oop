@@ -257,9 +257,9 @@ public class quanly {
                 ID = sc.nextLine();
             
                 // Loop through all the students in the arraylist to check if the entered ID already exists
-                int i = 0;
-                for (hocSinh h : sv){
-                       if(h.getId().equalsIgnoreCase(ID)){
+                // int i = 0;
+                for (int i = 0; i < sv.length; i++){
+                       if(sv[i].getId().equals(ID)){
                         System.out.println("ID da ton tai! Moi nhap lai ID moi!");
                         check = true; 
                         break;
@@ -270,9 +270,11 @@ public class quanly {
                 }
             } while (check); // Keep asking for ID until a unique ID is entered
             
-        
+            
+
             svnew.setId(ID);
             svnew.nhapTT();
+
                 // Logic nhap khoa va lop cho sinh vien.
                 lopCuaSinhVien lopMoi = new lopCuaSinhVien();
                 System.out.println("Nhap lop cho sv!!!");
@@ -285,16 +287,16 @@ public class quanly {
                 do{
                 System.out.print("Nhap ma lop cho sinh vien: ");
                 codeLop = sc.nextLine();
-                System.out.println(codeLop);
+                // System.out.println(codeLop);
                 for( i = 0; i < lop.length ; i++) {
-                    System.out.println(codeLop.equalsIgnoreCase(lop[i].getMaLop()));
-                
                     if(lop[i].getMaLop().equalsIgnoreCase(codeLop)) {
-                        // indexLop = i;
-                        System.out.println("Thoat Loop");
                         checkLop = false;
                         break;
                     }
+                }
+
+                if(checkLop) {
+                    System.out.println("Ma lop ban nhap la khong co!!");
                 }
 
                 }while (checkLop);
@@ -307,37 +309,34 @@ public class quanly {
                 // Khoa Logic Add database
                 khoaCuaSinhVien khoaMoi = new khoaCuaSinhVien();
                 System.out.println("Nhap khoa cho sinh vien!!!");
-                System.out.print("Nhap ma khoa cho sinh vien: ");
-                khoaMoi.setMaKhoa(sc.nextLine());
                 
                 // Logic xu ly de lay ma khoa
-                int indexKhoa;
+                int inde = 0;
                 int i1;
                 String codeKhoa;
                 boolean checkKhoa = true;
+                
                 do{
-                System.out.print("Nhap ma lop cho sinh vien: ");
+                System.out.print("Nhap ma khoa cho sinh vien: ");
                 codeKhoa = sc.nextLine();
                 System.out.println(codeKhoa);
                 for( i1 = 0; i1 < khoa.length ; i1++) {
-                    System.out.println(codeKhoa.equalsIgnoreCase(khoa[i1].getMaKhoa()));
-                
-                    if(khoa[i].getMaKhoa().equalsIgnoreCase(codeKhoa)) {
-                        // indexLop = i;
-                        System.out.println("Thoat Loop");
+                    // System.out.println(khoa[i1].getMaKhoa().equalsIgnoreCase(codeKhoa));
+                    if(khoa[i1].getMaKhoa().equalsIgnoreCase(codeKhoa)) {
+                        inde = i1;
                         checkKhoa = false;
                         break;
                     }
                 }
-                // if(!checkKhoa){
-                //     System.out.println("Ma khoa ban nhap khong co!!!");
-                // }
+                if(checkKhoa){
+                    System.out.println("Ma khoa ban nhap khong co!!!");
+                }
 
                 }while (checkKhoa);
 
                 // System.out.print("Nhap ten khoa cho sinh vien: ");
                 khoaMoi.setMaKhoa(codeKhoa);
-                khoaMoi.setTenKhoa(khoa[i].getTenKhoa());
+                khoaMoi.setTenKhoa(khoa[inde].getTenKhoa());
                 svnew.setKhoa(khoaMoi);
 
                 sv[index - 1] = svnew;
@@ -474,14 +473,81 @@ public class quanly {
         }
     }
     
-
     public void updateSV(String ID){
         ID = ID.toLowerCase();
         boolean check = true;
         
-        for (hocSinh x : sv) {
-           if(x.getId().equalsIgnoreCase(ID) ){
-            x.nhapTT();
+        for (int i = 0; i < sv.length; i++) {
+           if(sv[i].getId().equalsIgnoreCase(ID) ){
+            sv[i].nhapTT();
+
+            //Update khoa va lop 
+            
+                // Logic nhap khoa va lop cho sinh vien.
+                lopCuaSinhVien lopMoi = new lopCuaSinhVien();
+                System.out.println("Nhap lop cho sv!!!");
+
+                // Logic xu ly de lay ma lop
+                int indexLop;
+                int i1 = 0;
+                String codeLop;
+                boolean checkLop = true;
+                do{
+                System.out.print("Nhap ma lop cho sinh vien: ");
+                codeLop = sc.nextLine();
+                // System.out.println(codeLop);
+                for( i1 = 0; i1 < lop.length ; i1++) {
+                    if(lop[i1].getMaLop().equalsIgnoreCase(codeLop)) {
+                        checkLop = false;
+                        break;
+                    }
+                }
+
+                if(checkLop) {
+                    System.out.println("Ma lop ban nhap la khong co!!");
+                }
+
+                }while (checkLop);
+
+                lopMoi.setMaLop(codeLop);
+                lopMoi.setTenLop(lop[i].getTenLop());
+                sv[i].setLop(lopMoi);
+            
+
+                // Khoa Logic Add database
+                khoaCuaSinhVien khoaMoi = new khoaCuaSinhVien();
+                System.out.println("Nhap khoa cho sinh vien!!!");
+                
+                // Logic xu ly de lay ma khoa
+                int inde = 0;
+                int i2;
+                String codeKhoa;
+                boolean checkKhoa = true;
+                
+                do{
+                System.out.print("Nhap ma khoa cho sinh vien: ");
+                codeKhoa = sc.nextLine();
+                System.out.println(codeKhoa);
+                for( i2 = 0; i2 < khoa.length ; i2++) {
+                    // System.out.println(khoa[i1].getMaKhoa().equalsIgnoreCase(codeKhoa));
+                    if(khoa[i2].getMaKhoa().equalsIgnoreCase(codeKhoa)) {
+                        inde = i2;
+                        checkKhoa = false;
+                        break;
+                    }
+                }
+                if(checkKhoa){
+                    System.out.println("Ma khoa ban nhap khong co!!!");
+                }
+
+                }while (checkKhoa);
+
+                // System.out.print("Nhap ten khoa cho sinh vien: ");
+                khoaMoi.setMaKhoa(codeKhoa);
+                khoaMoi.setTenKhoa(khoa[inde].getTenKhoa());
+                sv[i].setKhoa(khoaMoi);
+
+
             check = false;
            }
         }
@@ -493,10 +559,10 @@ public class quanly {
     public void updateNV(String ID) {
         boolean check = true;
         ID = ID.toLowerCase();
-
-        for(nhanVien x:nv){
-            if(x.getId().equalsIgnoreCase(ID)){
-            x.nhapTT();
+        // sc.nextLine();
+        for(int i = 0; i < nv.length; i++){
+            if(nv[i].getId().equalsIgnoreCase(ID)){
+                nv[i].nhapTT();
             check = false;
             }
         }
@@ -714,6 +780,16 @@ public class quanly {
             khoa = Arrays.copyOf(khoa, 0);
             lop = Arrays.copyOf(lop, 0);
             countsv = 0;
+            countnv = 0;
+        }
+
+        public void cleanSV() {
+            sv = Arrays.copyOf(sv, 0);
+            countsv = 0;
+        }
+
+        public void cleanNV() {
+            nv = Arrays.copyOf(nv, 0);
             countnv = 0;
         }
 

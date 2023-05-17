@@ -148,7 +148,7 @@ public class hocSinh extends person implements chucNang {
     public void toStringToDetail(){
         super.toStringToDetail();
         System.out.println("Lop cua sinh vien: " + getLop().getTenLop());
-        System.out.println("Khoa cua sinh vien: (Ma khoa) " + getKhoa().getTenKhoa() +
+        System.out.println("Khoa cua sinh vien: (Ma khoa) " + getKhoa().getMaKhoa() +
          ", (Ten khoa) " + getKhoa().getTenKhoa());
         System.out.println("Thong tin phu huynh!");
         System.out.println("Ten phu huynh: " + getPh().getTen());

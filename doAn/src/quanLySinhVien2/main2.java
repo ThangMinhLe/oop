@@ -136,7 +136,7 @@ public class main2 {
                         break;
 
                         case 4: 
-                        System.out.print("Nhap Ten ban muon Update: ");
+                        System.out.print("Nhap Ten ban muon tim kiem: ");
                         x.findByNameSV(sc.nextLine());
                         break;
 
@@ -145,7 +145,7 @@ public class main2 {
                         break;
 
                         case 6: 
-                            x.clean();
+                            x.cleanSV();
                         break;
 
                     }
@@ -170,8 +170,8 @@ public class main2 {
                             break;
 
                             case 2: 
-                                System.out.print("Nhap ID ban muon tim kiem: ");
-                                x.updateSV(sc.nextLine());
+                                System.out.print("Nhap ID ban muon Update: ");
+                                x.updateNV(sc.nextLine());
                             break;
 
                             case 3: 
@@ -188,7 +188,7 @@ public class main2 {
                             break;
 
                             case 6: 
-                                x.clean();
+                                x.cleanNV();
                             break;
 
                         }
@@ -304,19 +304,19 @@ public class main2 {
                                             
                                             switch(subChoose5) {
                                                 case 1:
-                                                System.out.print("Nhap Ma Khoa!");
+                                                System.out.print("Nhap Ma Khoa: ");
                                                     x.showTTSVByKhoa(sc.nextLine());
                                                 break;
 
                                                 case 2: 
-                                                    System.out.println("Nhap Ma Lop!");
+                                                    System.out.println("Nhap Ma Lop: ");
                                                     x.showTTSVByLop(sc.nextLine());
                                                 break;
                                                 
 
                                                 case 3:
                                                     x.showTTSV();
-                                                    x.showTTNV();
+                                                    // x.showTTNV();
                                                 break;
                                             }    
                                             }    
