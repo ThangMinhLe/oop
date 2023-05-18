@@ -3,7 +3,7 @@ sv;02;Dang Quang Tin;nam;2000;03;07;Thu Duc;HCM;DCA;TO;TOAN;Tin;02869;Toan;9.0
 sv;03;Dang Quang Tri;nam;2000;03;07;Thu Duc;HCM;DCB;KT;KINH TE;Tin;02869;Toan;9.0
 gv;04;Dang Tin;nam;1992;12;12;Thu Duc;HCM;Lap Trinh Huong Doi Tuong;4;2000000
 vp;05;Dang Tri;nam;1992;12;12;Thu Duc;HCM;200;50000
-bv;06;Dang Tan;nam;1992;12;12;Thu Duc;HCM;28.9;250000
+bv;06;Dang Tan;nam;1992;12;12;Thu Duc;HCM;28.9;300000
 khoa;CNTT;C.NGHE TT
 khoa;TO;TOAN
 khoa;KT;KINH TE
